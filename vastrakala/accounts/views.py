@@ -65,7 +65,6 @@ def make_so(request):
             form.save()
             # messages.info(request, 'Your order has been saved successfully!')
             return HttpResponseRedirect(reverse("accounts:make_so"))
-        else:
     else:
         form = SalesOrderForm()
 
