@@ -33,7 +33,6 @@ def show_resellers(request):
     all_resellers = Reseller.objects.order_by('id').reverse()
     if request.method == "POST":
         form = ResellerForm(data=request.POST)
-        print form
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("accounts:resellers"))
@@ -63,13 +62,10 @@ def make_so(request):
         form = SalesOrderForm(request.POST)
         # print form
         if form.is_valid():
-            print ":-)" * 100
             form.save()
             # messages.info(request, 'Your order has been saved successfully!')
             return HttpResponseRedirect(reverse("accounts:make_so"))
         else:
-            print "x"*100
-            print form.errors
     else:
         form = SalesOrderForm()
 
