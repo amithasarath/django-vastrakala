@@ -1,0 +1,17 @@
+{% extends "accounts/base_admin.html" %}
+
+{% load rest_framework %}
+{% load static %}
+
+{% block admin_content %}
+
+<form action="{% url 'accounts:api_dealer_create'  %}" method="POST" novalidate>
+    {% csrf_token %}
+
+    {% render_form serializer %}
+    <!--<td>{{ form.dealer_code }}</td>-->
+    <!--<td>{{ form.dealer_name }}</td>-->
+    <td><input type="submit" value="Add Dealer" /></td>
+</form>
+
+{% endblock %}

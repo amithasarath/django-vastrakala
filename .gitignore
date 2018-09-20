@@ -9,3 +9,5 @@ db.sqlite3
 material-dashboard-v1.2.0
 shopper
 website downloaded images
+*.jpg
+*.gif

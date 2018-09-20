@@ -5,10 +5,14 @@
 		<meta charset="UTF-8">
 		<title>Title</title>
 
+		 <base href="/">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="description" content="">
 			<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
-			<!-- bootstrap -->
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+		<!-- bootstrap -->
 			<link href="/static/stock/css/bootstrap.min.css" rel="stylesheet">
 			<link href="{% static 'stock/css/bootstrap-responsive.min.css' %}" rel="stylesheet">
 
@@ -31,6 +35,11 @@
 				<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<script src="{% static 'stock/js/respond.min.js' %}"></script>
 			<![endif]-->
+
+
+
+
+
 	</head>
 	<body>
 		{% block banner %}
@@ -43,25 +52,37 @@
 				{% include "stock/navbar.html" %}
 			{% endblock %}
 
-			{% block slider %}
-				{% include "stock/slider.html" %}
-			{% endblock %}
+		<!--</div>-->
+		<!--<div id="wrapper" class="container">-->
+			<!--{% block slider %}-->
+				<!--{% include "stock/slider.html" %}-->
+			<!--{% endblock %}-->
 			<section class="header_text">
 				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
 				<br/>Don't miss to use our cheap abd best bootstrap templates.
 			</section>
 
+			 <!--<app-root></app-root>-->
+
+<script type="text/javascript" src="{% static 'stock/js/inline.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'stock/js/polyfills.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'stock/js/styles.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'stock/js/vendor.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'stock/js/main.bundle.js' %}"></script></body>
+
+
 			<section class="main-content">
 				<div class="row">
+
 					{% block content %}
 
 					{% endblock %}
 				</div>
 			</section>
 
-			{% block client %}
-				{% include "stock/client.html" %}
-			{% endblock %}
+			<!--{% block client %}-->
+				<!--{% include "stock/testimonial.html" %}-->
+			<!--{% endblock %}-->
 
 			{% block footer %}
 				{% include "stock/footer.html" %}
@@ -74,5 +95,6 @@
 		</div>
 
 		{% block javascript %}	{% endblock %}
+		{% block css %}	{% endblock %}
 	</body>
 </html>

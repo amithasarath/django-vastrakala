@@ -1,0 +1,16 @@
+{% extends "accounts/base_admin.html" %}
+
+{% load rest_framework %}
+{% load static %}
+
+{% block admin_content %}
+
+<form action="{% url 'accounts:api_dealer_update' dealer.dealer_code  %}" method="POST" novalidate>
+    {% csrf_token %}
+
+    {% render_form serializer %}
+
+  <input type="submit" value="Update Dealer" />
+</form>
+
+{% endblock %}

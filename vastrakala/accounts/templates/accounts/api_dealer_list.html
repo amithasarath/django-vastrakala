@@ -1,0 +1,27 @@
+{% extends "accounts/base_admin.html" %}
+
+{% load static %}
+
+{% block admin_content %}
+
+<p>
+    <a href ="{% url 'accounts:api_dealer_create' %}">Create new Dealer </a>
+</p>
+<ul>
+    {% for d in data %}
+
+    <li>
+        <a href="{% url 'accounts:api_dealer_update' d.dealer_code %}" >
+            {{ d.dealer_code }} - {{ d.dealer_name}}
+        </a>
+
+        <a href="{% url 'accounts:api_dealer_delete' d.dealer_code %}" >
+            [Delete]
+        </a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}
+
