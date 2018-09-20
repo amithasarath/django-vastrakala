@@ -11,3 +11,4 @@ shopper
 website downloaded images
 *.jpg
 *.gif
+.idea/workspace.xml

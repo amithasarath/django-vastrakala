@@ -31,7 +31,7 @@ class ItemGroupListView(generic.ListView):
         #     'churidar_list': churidars,
         #     'jewel_list': jewels,
         # })
-        print jewels
+        # print jewels
         return context
 
 
