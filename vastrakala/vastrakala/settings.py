@@ -25,7 +25,7 @@ SECRET_KEY = 'g&k36)r4lv_@*q^+p1a9kztlda2s=t^q2pj52=q@)7)$%smkpn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['amithamd.pythonanywhere.com','localhost']
+ALLOWED_HOSTS = ['ec2-13-233-44-8.ap-south-1.compute.amazonaws.com','13.233.44.8','127.0.0.1','localhost']
 
 
 # Application definition
