@@ -29,9 +29,9 @@
 										<img src="{{ item.group_image.url }}" alt="" style="height:270px;"/>
 									</a>
 								</p>
-								<a href="{% url 'stock:products' item.id %}" class="title">ID={{ item.id}} &{{ item.group }}</a>
+								<a href="{% url 'stock:products' item.id %}" class="title">{{ item.group }}</a>
 								<br/>
-								<a href="{% url 'stock:products' item.id %}" class="category"> {{forloop.index}} =={{ item.description }}</a>
+								<a href="{% url 'stock:products' item.id %}" class="category"> {{ item.description }}</a>
 								<p class="price">Rs.{{ item.price }}</p>
 							</div>
 						</li>

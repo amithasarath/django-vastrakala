@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'corsheaders',
+    'shop',
+    'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart', #we have added our cart context processor in template settings and this means that our context processor will be executed every time a template is rendered using django request.
             ],
         },
     },
@@ -136,3 +140,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+CART_SESSION_ID = 'cart'

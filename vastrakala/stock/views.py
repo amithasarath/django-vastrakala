@@ -8,6 +8,8 @@ from . forms import ItemGroupForm,ItemStockForm
 from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 
+from cart.forms import CartAddStockForm
+
 
 class ItemGroupListView(generic.ListView):
     template_name = 'stock/index.html'
@@ -52,16 +54,32 @@ def item_stock_list(request,pk):
     for item in item_list:
         print item.id
         print item.item_name
-    return render(request,'stock/products.html',{"item_list":item_list})
+    return render(request,'stock/products.html',{"item_list":item_list,
+                                                 "item_groups":ItemGroup.objects.all()})
 
 
 class ItemStockDetailView(generic.DetailView):
     model = ItemStock
     template_name = 'stock/product_detail.html'
 
+    def get_context_data(self, **kwargs):
+        # xxx will be available in the template as the related objects
+        context = super(ItemStockDetailView, self).get_context_data(**kwargs)
+        cart_stock_form = CartAddStockForm()
+        context['related_items'] = ItemStock.objects.all()
+        # context['related_items'] = ItemStock.objects.filter(item_group=2)
+        context['item_groups'] = ItemGroup.objects.all()
+        context['cart_stock_form'] = cart_stock_form
 
-def view_cart(request):
-    return render(request,'stock/cart.html')
+        # context[]
+        print self.get_object().item_group
+        print ItemStock.objects.filter(item_group = self.get_object().item_group)
+        print "**********"
+        return context
+
+
+# def view_cart(request):
+#     return render(request,'stock/cart.html')
 
 def checkout(request):
     return render(request, 'stock/checkout.html')

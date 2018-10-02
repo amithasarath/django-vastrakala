@@ -15,8 +15,12 @@
                     <img alt="" src="{{ item.item_image.url }}" style="height:270px;">
                 </a>
                 <br/>
-                <a href="product_detail.html" class="title">{{ item.item_name }}</a><br/>
-                <a href="#" class="category">{{ static }}+{{ item.item_image.url }}</a>
+                <a href="{% url 'stock:product-detail' item.id %}" class="title">
+                    {{ item.item_name }}
+                </a>
+                <br/>
+                <!--<a href="#" class="category">{{ static }}+{{ item.item_image.url }}</a>-->
+                <a href="#" class="category"></a>
                 <p class="price">Rs. {{item.price }}</p>
             </div>
         </li>
@@ -39,12 +43,18 @@
     <div class="block">
         <ul class="nav nav-list">
             <li class="nav-header">SUB CATEGORIES</li>
-            <li><a href="products.html">Nullam semper elementum</a></li>
-            <li class="active"><a href="products.html">Phasellus ultricies</a></li>
-            <li><a href="products.html">Donec laoreet dui</a></li>
-            <li><a href="products.html">Nullam semper elementum</a></li>
-            <li><a href="products.html">Phasellus ultricies</a></li>
-            <li><a href="products.html">Donec laoreet dui</a></li>
+            {% for cat in item_groups %}
+			<li class="{% if object.item_group == cat.group %} active {% endif %}">
+				<a href="{% url 'stock:products' cat.id %}">{{ cat.group }} </a>
+			</li>
+
+
+			<!--<li class="active"><a href="products.html">Phasellus ultricies</a></li>-->
+			<!--<li><a href="products.html">Donec laoreet dui</a></li>-->
+			<!--<li><a href="products.html">Nullam semper elementum</a></li>-->
+			<!--<li><a href="products.html">Phasellus ultricies</a></li>-->
+			<!--<li><a href="products.html">Donec laoreet dui</a></li>-->
+			{% endfor %}
         </ul>
         <br/>
         <ul class="nav nav-list below">

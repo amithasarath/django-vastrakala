@@ -1,35 +1,47 @@
 {% load staticfiles %}
 
 <section class="navbar main-menu">
-				<div class="navbar-inner main-menu">
-					<div class="col-md-4">
-						<a href="{% url 'stock:index' %}" class="logo pull-left">
-							<img src="{% static 'stock/img/vastrakala/logo.jpg' %}" class="site_logo" alt="">
-						</a>
-					</div>
-					<div class="col-md-8">
-					<nav id="menu" class="pull-right">
+	<div class="navbar-inner main-menu">
+		<div class="col-md-4">
+			<a href="{% url 'stock:index' %}" class="logo pull-left">
+				<img src="{% static 'stock/img/vastrakala/logo.jpg' %}" class="site_logo" alt="">
+			</a>
+		</div>
+		<div class="col-md-8">
+			<nav id="menu" class="pull-right">
+				<ul>
+					<li><a href="{% url 'stock:products' 0 %}">Sarees</a>
 						<ul>
-							<li><a href="{% url 'stock:products' 0 %}">Sarees</a>
-								<ul>
-									<li><a href="">Mahapor</a></li>
-									<li><a href="">Mooklin</a></li>
-									<li><a href="">Monica</a></li>
-								</ul>
-							</li>
-							<li><a href="./products.html">Churidars</a></li>
-							<!--<li><a href="./products.html">Sport</a>-->
-								<ul>
-									<li><a href="./products.html">Gifts and Tech</a></li>
-									<li><a href="./products.html">Ties and Hats</a></li>
-									<li><a href="./products.html">Cold Weather</a></li>
-								</ul>
-							</li>
-							<li><a href="./products.html">Jewels</a></li>
-							<!--<li><a href="./products.html">Best Seller</a></li>-->
-							<!--<li><a href="./products.html">Top Seller</a></li>-->
+							<li><a href="">Mahapor</a></li>
+							<li><a href="">Mooklin</a></li>
+							<li><a href="">Monica</a></li>
 						</ul>
-					</nav>
-						</div>
-				</div>
-			</section>
+					</li>
+					<li><a href="./products.html">Churidars</a></li>
+						<ul>
+							<li><a href="./products.html">Gifts and Tech</a></li>
+							<li><a href="./products.html">Ties and Hats</a></li>
+							<li><a href="./products.html">Cold Weather</a></li>
+						</ul>
+					</li>
+					<li><a href="./products.html">Jewels</a></li>
+				</ul>
+
+				<div class="row" style="margin-top: 6%">
+         			<button class="btn btn-info pull-right">
+						{% with totail_items=cart|length %}
+							{% if cart|length > 0 %}
+								My Shopping Order:
+								<a href="{% url 'cart:cart_detail' %}" style="color: #ffffff">
+									{{ totail_items }} item{{ totail_items|pluralize }}, Rs. {{ cart.get_total_price }}
+								</a>
+							{% else %}
+								Your cart is empty.
+							{% endif %}
+						{% endwith %}
+         			</button>
+    			</div>
+			</nav>
+		</div>
+	</div>
+</section>

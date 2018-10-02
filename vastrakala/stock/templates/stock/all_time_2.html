@@ -27,7 +27,7 @@
 								</a></p>
 								<a href="{% url 'stock:products' item.id %}" class="title">{{item.group}}</a>
 								<br/>
-								<a href="{% url 'stock:products' item.id %}" class="category">{{forloop.counter}}---{{item.description}}</a>
+								<a href="{% url 'stock:products' item.id %}" class="category">{{item.description}}</a>
 								<p class="price">Rs. {{ item.price }}</p>
 							</div>
 						</li>
