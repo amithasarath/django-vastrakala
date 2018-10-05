@@ -191,19 +191,19 @@ class SalesOrderSearchView(generic.ListView): #Not using now
             dealer = self.request.GET.get('dealer_code')
             customer = self.request.GET.get('customer')
             # dealer = self.kwargs.get('dealer_code',"kys")
-            print "*" * 100
-            print dealer
-            print customer
-            print "Here"
+            # print "*" * 100
+            # print dealer
+            # print customer
+            # print "Here"
         except:
             dealer = ''
         if (dealer != ''):
             object_list = self.model.objects.filter(dealer_code = dealer)
         else:
             object_list = self.model.objects.all()
-        print "Dealer", dealer
-        print "+" *100
-        print object_list
+        # print "Dealer", dealer
+        # print "+" *100
+        # print object_list
         return object_list
 
 
@@ -211,7 +211,7 @@ def custom_sales_report(request):
     if request.method == "POST":
         pass
     else:
-        print "-" * 100
+        # print "-" * 100
 
         r = request.GET.get('reseller') or ""
         c = request.GET.get('customer') or ""
@@ -227,15 +227,15 @@ def custom_sales_report(request):
         customers = Customer.objects.all()
         dealers = Dealer.objects.all()
         so = sos = SalesOrder.objects.all()
-        print sos
+        # print sos
 
         # if r:
-        print "YES"
+        # print "YES"
         # so = sos.filter(booking_date__year=2017)
         # so = sos.filter(tracking_id__startswith='123')
         # so = sos.filter(tracking_id__contains='456')
         so = sos.filter(reseller__reseller_name__contains=r)
-        print so
+        # print so
 
         # so = SalesOrder.objects.get(
         # so = sos.filter(
@@ -359,7 +359,7 @@ class SalesOrderList(APIView):  #url : accounts/api/sales-order-list
     def get(self,request):
         sales_orders = SalesOrder.objects.all()
         so_serailizer = SalesOrderSerializer(sales_orders,many=True)
-        print type(so_serailizer.data)
+        # print type(so_serailizer.data)
         return Response(so_serailizer.data)
 
 
@@ -378,7 +378,7 @@ class DealerList(APIView):
     def get(self,request,format=None):
         dealers = Dealer.objects.all()
         dealer_serializer = DealerSerializer(dealers,many=True)
-        print dealer_serializer.data
+        # print dealer_serializer.data
         return Response({"data":dealer_serializer.data})
         # return Response({"data":dealers})        #also working
 
@@ -420,7 +420,7 @@ class DealerUpdate(APIView):
     def post(self, request, pk, format=None):
         d = get_object_or_404(Dealer, dealer_code=pk)
         serializer = DealerSerializer(d, data=request.data)
-        print serializer
+        # print serializer
         if serializer.is_valid():
             serializer.save()
             return redirect('accounts:api_dealer_list')

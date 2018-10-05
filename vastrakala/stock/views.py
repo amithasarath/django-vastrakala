@@ -45,15 +45,15 @@ class ItemStockListView(generic.ListView):
 
 
 def item_stock_list(request,pk):
-    print pk
-    print "-" *100
+    # print pk
+    # print "-" *100
     if pk == "0":
         item_list = ItemStock.objects.all()
     else:
         item_list = ItemStock.objects.filter(item_group = pk)
-    for item in item_list:
-        print item.id
-        print item.item_name
+    # for item in item_list:
+        # print item.id
+        # print item.item_name
     return render(request,'stock/products.html',{"item_list":item_list,
                                                  "item_groups":ItemGroup.objects.all()})
 
@@ -72,9 +72,9 @@ class ItemStockDetailView(generic.DetailView):
         context['cart_stock_form'] = cart_stock_form
 
         # context[]
-        print self.get_object().item_group
-        print ItemStock.objects.filter(item_group = self.get_object().item_group)
-        print "**********"
+        # print self.get_object().item_group
+        # print ItemStock.objects.filter(item_group = self.get_object().item_group)
+        # print "**********"
         return context
 
 
@@ -94,7 +94,7 @@ def add_item_group(request):
             form.save()
             return HttpResponseRedirect(reverse('stock:add_item_group'))
         else:
-            print form.errors
+            print (form.errors)
     else:
         form = ItemGroupForm()
         return render(request,'stock/add_item_group.html',{'form':form})
@@ -109,7 +109,7 @@ def add_item_stock(request):
             form.save()
             return HttpResponseRedirect(reverse('stock:add_item_stock'))
         else:
-            print form.errors
+            print (form.errors)
     else:
         form = ItemStockForm
         return render(request,'stock/add_item_stock.html',{'form':form})
