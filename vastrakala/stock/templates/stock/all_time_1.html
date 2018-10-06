@@ -24,7 +24,7 @@
 						<li class="span4">
 							<div class="product-box">
 								<span class="sale_tag"></span>
-								<p>
+								<p> {{ item.group_image.url }}
 									<a href="{% url 'stock:products' item.id %}">
 										<img src="{% if item.group_image %}
                                 {{ item.group_image.url }}
