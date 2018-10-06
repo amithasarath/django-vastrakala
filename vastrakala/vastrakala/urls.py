@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
 
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
