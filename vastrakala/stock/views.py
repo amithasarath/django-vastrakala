@@ -52,10 +52,16 @@ def item_stock_list(request,pk):
     else:
         item_list = ItemStock.objects.filter(item_group = pk)
     # for item in item_list:
-        # print item.id
-        # print item.item_name
-    return render(request,'stock/products.html',{"item_list":item_list,
-                                                 "item_groups":ItemGroup.objects.all()})
+    #     print item.id
+    #     print item.item_name
+    # item_group =ItemGroup.objects.all()
+    # for item in item_group:
+    #     print item.group
+    #     print item.id
+    return render(request,'stock/products.html',{
+                                "item_list":item_list,
+                                "item_groups":ItemGroup.objects.all()
+        })
 
 
 class ItemStockDetailView(generic.DetailView):

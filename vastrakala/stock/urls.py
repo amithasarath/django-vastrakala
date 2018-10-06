@@ -18,4 +18,8 @@ urlpatterns = [
     url(r'^accounts/item-stock/new/$',add_item_stock,name="add_item_stock"),
 
     # url(r'^getcust/$',Customers.as_view(),name="getcust"),
-]
+]+  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -15,6 +15,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-6 text-right" style="float: right;">
+                            <!--<img src="{{ product.image.url }}"-->
+                                 <!--alt="..." style="height: 170px; width: auto">-->
                             <img src="{% if product.image %} {{ product.image.url }}
                                         {% else %} {% static 'img/default.jpg' %}
                                       {% endif %}"

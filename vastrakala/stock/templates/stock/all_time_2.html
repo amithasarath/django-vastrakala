@@ -23,7 +23,11 @@
 							<div class="product-box">
 								<span class="sale_tag"></span>
 								<p><a href="{% url 'stock:products' item.id %}">
-									<img src="{{ item.group_image.url }}" alt="" style="height:270px;"/>
+									<img src="{% if item.group_image %}
+                                {{ item.group_image.url }}
+                               {% else %}
+                                    {% static 'items/default.png' %}
+                                {% endif %}" alt="...">
 								</a></p>
 								<a href="{% url 'stock:products' item.id %}" class="title">{{item.group}}</a>
 								<br/>

@@ -10,4 +10,5 @@ class ItemGroupForm(forms.ModelForm):
 class ItemStockForm(forms.ModelForm):
     class Meta:
         model = ItemStock
-        fields = "__all__"
+        # fields = "__all__"
+        fields = ["item_name","item_group","stock"]
