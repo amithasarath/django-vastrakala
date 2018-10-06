@@ -11,7 +11,7 @@
 			<img src="{% if object.item_image %} {{ object.item_image.url }}
                       {% else %} {% static 'img/default.jpg' %}
                       {% endif %}"
-				 alt="...">
+				 alt="{{ object.item_name}}">
 			</a>
 
 

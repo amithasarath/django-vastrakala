@@ -10,13 +10,13 @@
         {% for item in item_list %}
         <li class="span3">
             <div class="product-box">
-                <span class="sale_tag"></span>{{ item.item_image.url }}
+                <span class="sale_tag"></span>
                 <a href="{% url 'stock:product-detail' item.id %}">
                     <img src="{% if item.item_image %}
                                 {{ item.item_image.url }}
                                {% else %}
                                     {% static 'items/default.png' %}
-                                {% endif %}" alt="{{ item.item_image.url }}">
+                                {% endif %}" alt="{{ item.item_name }}">
                 </a>
                 <br/>
                 <a href="{% url 'stock:product-detail' item.id %}" class="title">

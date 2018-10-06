@@ -16,9 +16,9 @@ admin.site.register(ItemType,ItemTypeAdmin)
 
 
 class ItemGroupAdmin(admin.ModelAdmin):
-    list_display = ['group', 'slug', 'price', 'type', 'description','available', 'created_at', 'updated_at']
+    list_display = ['group', 'slug','group_image' ,'price', 'type', 'description','available', 'created_at', 'updated_at']
     list_filter = ['available', 'created_at', 'updated_at']
-    list_editable = ['price', 'type', 'available','description']
+    list_editable = ['price', 'type','group_image', 'available','description']
     prepopulated_fields = {'slug': ('group',)}
 
 
