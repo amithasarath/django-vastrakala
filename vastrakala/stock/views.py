@@ -48,7 +48,8 @@ def item_stock_list(request,pk):
     if pk == "0":
         item_list = ItemStock.objects.all()
     else:
-        item_list = ItemStock.objects.filter(item_group__type = pk)
+        # item_list = ItemStock.objects.filter(item_group__type = pk)
+        item_list = ItemStock.objects.filter(item_group = pk)
     return render(request,'stock/products.html',{
                                 "item_list":item_list,
                                 "item_groups":ItemGroup.objects.all()
