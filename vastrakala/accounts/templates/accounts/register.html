@@ -14,7 +14,8 @@
 				<!--<hr>-->
     <!--</form>-->
 
-    -------------------
+
+
 	<form  method="post" action="{% url 'core:login' %}">
 		{% csrf_token %}
         {% if login_form.errors %}

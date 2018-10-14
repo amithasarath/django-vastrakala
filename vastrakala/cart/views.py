@@ -42,7 +42,6 @@ def cart_detail1(request):
 
 @require_POST
 def cart_add(request, product_id):
-    # print "Inside my cart add"
     cart = Cart(request)
     product = get_object_or_404(ItemStock, id=product_id)
     form = CartAddStockForm(request.POST)
@@ -58,7 +57,9 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddStockForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'cart/cart.html', {'cart': cart})
 
+
 def cart_remove(request, product_id):
+    print(product_id)
     cart = Cart(request)
     product = get_object_or_404(ItemStock, id=product_id)
     cart.remove(product)
@@ -67,3 +68,9 @@ def cart_remove(request, product_id):
 
 def checkout(request):
     return render(request, 'cart/checkout.html')
+
+from django.contrib.auth import views as auth_views
+
+def checkout_login(request):
+    # ... logic for logging in ...
+    return render(request, 'cart / checkout.html', auth_views.login)

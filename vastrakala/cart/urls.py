@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from django.contrib.auth import views as auth_views
 
 app_name = 'cart'
 
@@ -12,6 +13,8 @@ urlpatterns = [
     url(r'^add/(?P<product_id>\d+)/$', views.cart_add, name='cart_add'),
     url(r'^remove/(?P<product_id>\d+)/$', views.cart_remove, name='cart_remove'),
 
-    url(r'^checkout/$', views.checkout, name="checkout"),
+    url(r'^checkout/$', auth_views.login,
+        {'template_name': 'cart/checkout.html'}, name='checkout'),
+    # url(r'^checkout/$', views.checkout, name="checkout"),
 
 ]
