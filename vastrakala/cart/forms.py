@@ -9,5 +9,6 @@ class CartAddProductForm(forms.Form):
 
 
 class CartAddStockForm(forms.Form):
-    quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
+    # quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
+    quantity = forms.IntegerField(min_value=1, initial=1)
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)

@@ -4,7 +4,7 @@
 __pycache__
 venev
 db.sqlite3
-/static
+
 /media
 .DS_Store
 material-dashboard-v1.2.0

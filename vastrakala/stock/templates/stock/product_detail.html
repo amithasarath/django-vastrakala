@@ -11,7 +11,7 @@
 			<img src="{% if object.item_image %} {{ object.item_image.url }}
                       {% else %} {% static 'img/default.jpg' %}
                       {% endif %}"
-				 alt="{{ object.item_name}}">
+				 alt="{{ object.item_name}}" >
 
 
 
@@ -52,10 +52,19 @@
 
 				 <!--ID:{{ object.id }}-->
 
-				{{ cart_stock_form }}
+
+				<label for="id_quantity">Quantity:</label>
+				 <input type="number" name="quantity" value="1"
+						required="" id="id_quantity" min="1" style="width:40px;">
+				 <input type="hidden" name="update" value="False" id="id_update">
 				 				<!--<button class="btn btn-inverse" type="submit">Add to Cart</button>-->
 
-				<input type="submit" value="Add to Cart" style = "margin-top:-10px;" class="btn btn-primary">
+				<input type="submit" value="Add to Cart" style="margin-top:-10px;" class="btn btn-primary">
+
+				<!--{{ cart_stock_form }}-->
+				 				<!--<button class="btn btn-inverse" type="submit">Add to Cart</button>-->
+
+				<!--<input type="submit" value="Add to Cart" style = "margin-top:-10px;" class="btn btn-primary">-->
              </form>
 		</div>
 	</div>
@@ -88,65 +97,71 @@
 			<h4 class="title">
 				<span class="pull-left"><span class="text"><strong>Related</strong> Products</span></span>
 				<span class="pull-right">
-					<a class="left button" href="#myCarousel-1" data-slide="prev"></a><a class="right button" href="#myCarousel-1" data-slide="next"></a>
+					<a class="left button" href="#myCarousel-1" data-slide="prev"></a>
+					<a class="right button" href="#myCarousel-1" data-slide="next"></a>
 				</span>
 			</h4>
-			<div id="myCarousel-1" class="carousel slide">
+			<div id="myCarousel-1" class="myCarousel carousel slide multi-item-carousel2">
 				<div class="carousel-inner">
-					<div class="active item">
-						<ul class="thumbnails listing-products">
-						{% for item in related_items %}
-							<li class="span3">
+					{% for item in related_items %}
+					<div class="item {% if forloop.counter == 1 %}active{% endif %}"
+						id="slide{{ forloop.counter }}">
+						<ul class="thumbnails"
+						style="display:inline-block;vertical-align:middle">
+						<!--<ul class="thumbnails listing-products">-->
+
+							<li class="span2">
 								<div class="product-box">
 									<span class="sale_tag"></span>
-									<a href="product_detail.html">
+									<a href="{% url 'stock:product-detail' item.id %}">
 											<img src="{% if item.item_image %} {{ item.item_image.url }}
                       {% else %} {% static 'img/default.jpg' %}
-                      {% endif %}"
-				 alt="{{ item.item_name}}">
+                      {% endif %}" style="height:136px"
+				 alt="{{ item.item_name}}"/>
+									</a>
 
-
-
-									<br/>
-									<a href="product_detail.html" class="title">{{ item.item_name }}</a><br/>
-									<a href="#" class="category">{{ item.item_group}}</a>
-									<p class="price">Rs. {{ item.price }}</p>
+									<!--<br/>-->
+									<!--<a href="product_detail.html" class="title">{{ item.item_name }}</a><br/>-->
+									<!--<a href="#" class="category">{{ item.item_group}}</a>-->
+									<!--<p class="price">Rs. {{ item.price }}</p>-->
 								</div>
 							</li>
+						</ul>
+					</div>
 						{% endfor %}
 
-						</ul>
-					</div>
-					<div class="item">
-						<ul class="thumbnails listing-products">
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>
-									<a href="#" class="category">Phasellus consequat</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>
-									<a href="product_detail.html">Praesent tempor sem</a><br/>
-									<a href="#" class="category">Erat gravida</a>
-									<p class="price">$28</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="product_detail.html"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>
-									<a href="product_detail.html" class="title">Wuam ultrices rutrum</a><br/>
-									<a href="#" class="category">Suspendisse aliquet</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-						</ul>
-					</div>
+					<!--<div class="item">-->
+						<!--<ul class="thumbnails listing-products">-->
+							<!--<li class="span3">-->
+								<!--<div class="product-box">-->
+									<!--<span class="sale_tag"></span>-->
+									<!--<a href="product_detail.html"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>-->
+									<!--<a href="product_detail.html" class="title">Fusce id molestie massa</a><br/>-->
+									<!--<a href="#" class="category">Phasellus consequat</a>-->
+									<!--<p class="price">$341</p>-->
+								<!--</div>-->
+							<!--</li>-->
+							<!--<li class="span3">-->
+								<!--<div class="product-box">-->
+									<!--<a href="product_detail.html"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>-->
+									<!--<a href="product_detail.html">Praesent tempor sem</a><br/>-->
+									<!--<a href="#" class="category">Erat gravida</a>-->
+									<!--<p class="price">$28</p>-->
+								<!--</div>-->
+							<!--</li>-->
+							<!--<li class="span3">-->
+								<!--<div class="product-box">-->
+									<!--<span class="sale_tag"></span>-->
+									<!--<a href="product_detail.html"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>-->
+									<!--<a href="product_detail.html" class="title">Wuam ultrices rutrum</a><br/>-->
+									<!--<a href="#" class="category">Suspendisse aliquet</a>-->
+									<!--<p class="price">$341</p>-->
+								<!--</div>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+
+
 				</div>
 			</div>
 		</div>
@@ -163,13 +178,6 @@
 			<li class="{% if object.item_group == cat.group %} active {% endif %}">
 				<a href="{% url 'stock:products' cat.id %}">{{ cat.group }} </a>
 			</li>
-
-
-			<!--<li class="active"><a href="products.html">Phasellus ultricies</a></li>-->
-			<!--<li><a href="products.html">Donec laoreet dui</a></li>-->
-			<!--<li><a href="products.html">Nullam semper elementum</a></li>-->
-			<!--<li><a href="products.html">Phasellus ultricies</a></li>-->
-			<!--<li><a href="products.html">Donec laoreet dui</a></li>-->
 			{% endfor %}
 		</ul>
 		<br/>
@@ -258,13 +266,49 @@
 					openEffect  : 'none',
 					closeEffect : 'none'
 				});
-				
+
 				$('#myCarousel-2').carousel({
-                    interval: 2500
-                });								
+                    interval: 500
+                });
 			});
 		</script>
+
+<script>
+// Instantiate the Bootstrap carousel
+$('.multi-item-carousel2').carousel({
+  interval: false
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel2 .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  } else {
+  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});
+</script>
+
 {% endblock %}
 
+
+{% endblock %}
+
+
+{% block css %}
+<style>
+
+<!--ul{-->
+    <!--display: inline-block;-->
+    <!--vertical-align: middle;-->
+<!--}-->
+</style>
 
 {% endblock %}

@@ -13,6 +13,7 @@
                 <span class="sale_tag"></span>
                 <a href="{% url 'stock:product-detail' item.id %}">
                     <img class="img-responsive"
+                         style="height:236px"
                             src="{% if item.item_image %}
                                 {{ item.item_image.url }}
                                {% else %}
