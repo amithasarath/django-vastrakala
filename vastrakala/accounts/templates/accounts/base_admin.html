@@ -79,7 +79,9 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <!--<a class="navbar-brand" href="#">Vastrakala Online Boutique</a>-->
-       <img src="{% static 'stock/img/vastrakala/logo.jpg' %}" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="150" height="150">
+       <img src="{% static 'stock/img/vastrakala/logo.jpg' %}"
+            class="img-responsive img-circle margin" style="display:inline"
+            alt="Bird" width="150" height="150">
 
     </div>
     <ul class="nav navbar-nav">
@@ -106,7 +108,7 @@
 
         {% else %}
             Welcome, Guest |
-                <a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                <a href="{% url 'core:login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
 
         {% endif %}
         <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->

@@ -444,3 +444,6 @@ class DealerDelete(APIView):
         # return Response({'serializer': serializer})
 
 
+
+def my_account(request):
+    return render(request,"accounts/my_account.html")

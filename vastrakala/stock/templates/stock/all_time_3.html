@@ -9,11 +9,11 @@
 				</span>
 			</span>
 			<span class="pull-right">
-				<a class="left button" href="#myCarousel-2" data-slide="prev"></a>
-				<a class="right button" href="#myCarousel-2" data-slide="next"></a>
+				<a class="left button" href="#myCarousel-3" data-slide="prev"></a>
+				<a class="right button" href="#myCarousel-3" data-slide="next"></a>
 			</span>
 		</h4>
-		<div id="myCarousel-2" class="myCarousel-2 carousel slide multi-item-carousel2">
+		<div id="myCarousel-3" class="myCarousel-3 carousel slide multi-item-carousel3">
 			<div class="carousel-inner">
 				{% for item in churidar_list  %}
 				<div class="item {% if forloop.counter == 1 %}active{% endif %}"
@@ -49,13 +49,13 @@
 {% block javascript %}
 <script>
 // Instantiate the Bootstrap carousel
-$('.multi-item-carousel2').carousel({
+$('.multi-item-carousel3').carousel({
   interval: false
 });
 
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item.
-$('.multi-item-carousel2 .item').each(function(){
+$('.multi-item-carousel3 .item').each(function(){
   var next = $(this).next();
   if (!next.length) {
     next = $(this).siblings(':first');

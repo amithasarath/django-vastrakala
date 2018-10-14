@@ -26,20 +26,24 @@
 					</li>
 					<li><a href="{% url 'stock:products' 3 %}">Jewels</a></li>
 				</ul>
-				<div class="row" style="margin-top: 6%">
-         			<button class="btn btn-info pull-right">
-						{% with totail_items=cart|length %}
-							{% if cart|length > 0 %}
-								My Shopping Order:
-								<a href="{% url 'cart:cart_detail' %}" style="color: #ffffff">
-									{{ totail_items }} item{{ totail_items|pluralize }}, Rs. {{ cart.get_total_price }}
-								</a>
-							{% else %}
-								Your cart is empty.
-							{% endif %}
-						{% endwith %}
-         			</button>
-    			</div>
+
+
+				<!--<div class="row" style="margin-top: 6%">-->
+         			<!--<button class="btn btn-info pull-right">-->
+						<!--{% with totail_items=cart|length %}-->
+							<!--{% if cart|length > 0 %}-->
+								<!--My Shopping Order:-->
+								<!--<a href="{% url 'cart:cart_detail' %}" style="color: #ffffff">-->
+									<!--{{ totail_items }} item{{ totail_items|pluralize }}, Rs. {{ cart.get_total_price }}-->
+								<!--</a>-->
+							<!--{% else %}-->
+								<!--Your cart is empty.-->
+							<!--{% endif %}-->
+						<!--{% endwith %}-->
+         			<!--</button>-->
+    			<!--</div>-->
+
+
 			</nav>
 		</div>
 

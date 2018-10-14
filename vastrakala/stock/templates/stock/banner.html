@@ -9,9 +9,20 @@
 		<div class="span8">
 			<div class="account pull-right">
 				<ul class="user-menu">
-					<li><a href="#">My Account</a></li>
+					<li><a href="{% url 'accounts:my-account' %}">My Account</a></li>
 					<li>
 						<a href="{% url 'cart:cart_detail' %}">My Cart</a>
+						{% with totail_items=cart|length %}
+							{% if cart|length > 0 %}
+								<a href="{% url 'cart:cart_detail' %}" style="color: #ffffff">
+									<lavel id="cart-badge" class="badge badge-success">{{ totail_items }}</lavel>
+								</a>
+							{% else %}
+						<lavel id="cart-badge" class="badge badge-success">0</lavel>
+
+							{% endif %}
+						{% endwith %}
+
 						<span class="glyphicon glyphicon-shopping-cart">
 						  <!--<span class="badge badge-notify">-->
 							  <!--{% if cart|length > 0 %}{{ totail_items }} {% endif %}-->
@@ -36,6 +47,8 @@
 						  <!--<span class="badge badge-notify">6</span>-->
 						<!--&lt;!&ndash;</div>&ndash;&gt;-->
 					<!--</li>-->
+
+
 				</ul>
 			</div>
 		</div>
