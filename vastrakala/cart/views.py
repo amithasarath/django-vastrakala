@@ -63,3 +63,7 @@ def cart_remove(request, product_id):
     product = get_object_or_404(ItemStock, id=product_id)
     cart.remove(product)
     return redirect('cart:cart_detail')
+
+
+def checkout(request):
+    return render(request, 'cart/checkout.html')

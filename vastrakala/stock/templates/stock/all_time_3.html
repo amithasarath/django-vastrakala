@@ -1,44 +1,38 @@
-{% load staticfiles %}
+{% load static %}
 
 <div class="row">
 	<div class="span12">
 		<h4 class="title">
 			<span class="pull-left">
 				<span class="text">
-					<span class="line">All Time Available <strong>Sarees</strong></span>
+					<span class="line">All Time Available <strong>Churidars</strong>	</span>
 				</span>
-				<!--<p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p> -->
 			</span>
 			<span class="pull-right">
-				<a class="left button" href="#myCarousel" data-slide="prev"></a>
-				<a class="right button" href="#myCarousel" data-slide="next"></a>
+				<a class="left button" href="#myCarousel-2" data-slide="prev"></a>
+				<a class="right button" href="#myCarousel-2" data-slide="next"></a>
 			</span>
 		</h4>
-		<div id="myCarousel" class="myCarousel carousel slide multi-item-carousel">
+		<div id="myCarousel-2" class="myCarousel-2 carousel slide multi-item-carousel2">
 			<div class="carousel-inner">
-
-				{% for item in saree_list  %}
+				{% for item in churidar_list  %}
 				<div class="item {% if forloop.counter == 1 %}active{% endif %}"
-					 id="slide{{ forloop.counter }}">
-				<!--<div class="item active">-->
+					id="slide{{ forloop.counter }}">
 					<ul class="thumbnails">
 						<li class="span4">
 							<div class="product-box">
 								<span class="sale_tag"></span>
-								<p>
-									<a href="{% url 'stock:products' item.id %}">
-										<img src="{% if item.group_image %}
+								<p><a href="{% url 'stock:products' item.id %}">
+									<img src="{% if item.group_image %}
                                 {{ item.group_image.url }}
                                {% else %}
                                     {% static 'items/default.png' %}
                                 {% endif %}" alt="..." style="height:236px">
-
-									</a>
-								</p>
-								<a href="{% url 'stock:products' item.id %}" class="title">{{ item.group }}</a>
+								</a></p>
+								<a href="{% url 'stock:products' item.id %}" class="title">{{item.group}}</a>
 								<br/>
-								<a href="{% url 'stock:products' item.id %}" class="category"> {{ item.description }}</a>
-								<p class="price">Rs.{{ item.price }}</p>
+								<a href="{% url 'stock:products' item.id %}" class="category">{{item.description}}</a>
+								<p class="price">Rs. {{ item.price }}</p>
 							</div>
 						</li>
 					</ul>
@@ -50,16 +44,18 @@
 </div>
 
 
+
+
 {% block javascript %}
 <script>
 // Instantiate the Bootstrap carousel
-$('.multi-item-carousel').carousel({
+$('.multi-item-carousel2').carousel({
   interval: false
 });
 
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
+$('.multi-item-carousel2 .item').each(function(){
   var next = $(this).next();
   if (!next.length) {
     next = $(this).siblings(':first');
@@ -74,6 +70,9 @@ $('.multi-item-carousel .item').each(function(){
 });
 </script>
 {% endblock %}
+
+
+
 
 {% block css %}
 <style>

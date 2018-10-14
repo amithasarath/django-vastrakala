@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-LOGIN_REDIRECT_URL = 'accounts:dashboard'
+LOGIN_REDIRECT_URL = 'stock:index'
+# LOGIN_REDIRECT_URL = 'accounts:dashboard'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

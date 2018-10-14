@@ -45,19 +45,10 @@ class ItemStockListView(generic.ListView):
 
 
 def item_stock_list(request,pk):
-    # print pk
-    # print "-" *100
     if pk == "0":
         item_list = ItemStock.objects.all()
     else:
-        item_list = ItemStock.objects.filter(item_group = pk)
-    # for item in item_list:
-    #     print item.id
-    #     print item.item_name
-    # item_group =ItemGroup.objects.all()
-    # for item in item_group:
-    #     print item.group
-    #     print item.id
+        item_list = ItemStock.objects.filter(item_group__type = pk)
     return render(request,'stock/products.html',{
                                 "item_list":item_list,
                                 "item_groups":ItemGroup.objects.all()
@@ -86,9 +77,6 @@ class ItemStockDetailView(generic.DetailView):
 
 # def view_cart(request):
 #     return render(request,'stock/cart.html')
-
-def checkout(request):
-    return render(request, 'stock/checkout.html')
 
 
 def add_item_group(request):

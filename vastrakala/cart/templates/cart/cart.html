@@ -4,8 +4,13 @@
 
 {% block content %}
 
+{% if cart %}
+
 <div class="span9">
-	<h4 class="title"><span class="text"><strong>My</strong> Cart</span> {{ cart }}</h4>
+	<h4 class="title"><span class="text"><strong>My</strong> Cart</span> </h4>
+
+
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -21,7 +26,8 @@
 			{% for item in cart %}
 				{% with product=item.product  %}
 			<tr>
-				<td><input type="checkbox" value="option1"></td>
+				<!--<td><input type="checkbox" value="option1"></td>-->
+				<td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
 				<td>
 					<a href="{{ product.item_image.url }}">
 						<img src="{% if product.item_image %}
@@ -74,18 +80,28 @@
 	</label>
 	<hr>
 	<p class="cart-total right">
-		<strong>Sub-Total</strong>:	$100.00<br>
-		<strong>Eco Tax (-2.00)</strong>: $2.00<br>
-		<strong>VAT (17.5%)</strong>: $17.50<br>
-		<strong>Total</strong>: $119.50<br>
+		<!--<strong>Sub-Total</strong>:	$100.00<br>-->
+		<!--<strong>Eco Tax (-2.00)</strong>: $2.00<br>-->
+		<!--<strong>VAT (17.5%)</strong>: $17.50<br>-->
+		<!--<strong>Total</strong>: $119.50<br>-->
+		<strong>Total: Rs.{{ cart.get_total_price }}</strong><br>
 	</p>
 	<hr/>
 	<p class="buttons center">
 		<button class="btn" type="button">Update</button>
 		<button class="btn" type="button">Continue</button>
+		<a href="{% url 'cart:checkout' %}">
 		<button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>
+		</a>
 	</p>
 </div>
+
+{% else %}
+<div class="span9">
+	<h4 class="title"><span class="text"><strong>My</strong> Cart</span> </h4>
+	<img src="static/img/empty_cart.jpg" class="img-circle center-block center-img" alt="Cart Empty">
+</div>
+{% endif %}
 <div class="span3 col">
 	<div class="block">
 		<ul class="nav nav-list">

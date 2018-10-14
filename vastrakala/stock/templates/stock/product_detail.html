@@ -12,7 +12,7 @@
                       {% else %} {% static 'img/default.jpg' %}
                       {% endif %}"
 				 alt="{{ object.item_name}}">
-			</a>
+
 
 
 
@@ -33,24 +33,29 @@
 			<h4><strong>Price: Rs.{{object.price}}</strong></h4>
 		</div>
 		<div class="span5">
-			<form class="form-inline">
-				<label class="checkbox">
-					<input type="checkbox" value=""> Add to Wish list
-				</label>
-				<br/>
-				<label class="checkbox">
-				  <input type="checkbox" value=""> Email to a Friend
-				</label>
-				<p>&nbsp;</p>
-				<label>Qty:</label>
-				<input type="text" class="span1" placeholder="1">
-				<button class="btn btn-inverse" type="submit">Add to Cart</button>
-			</form>
+			<!--<form class="form-inline">-->
+				<!--<label class="checkbox">-->
+					<!--<input type="checkbox" value=""> Add to Wish list-->
+				<!--</label>-->
+				<!--<br/>-->
+				<!--<label class="checkbox">-->
+				  <!--<input type="checkbox" value=""> Email to a Friend-->
+				<!--</label>-->
+				<!--<p>&nbsp;</p>-->
+				<!--<label>Qty:</label>-->
+				<!--<input type="text" class="span1" placeholder="1">-->
+				<!--<button class="btn btn-inverse" type="submit">Add to Cart</button>-->
+			<!--</form>-->
 
 			 <form action="{% url 'cart:cart_add' object.id %}" method="post">
-				{% csrf_token %} ID:{{ object.id }}
+				{% csrf_token %}
+
+				 <!--ID:{{ object.id }}-->
+
 				{{ cart_stock_form }}
-				<input type="submit" value="Add to Cart" class="btn btn-primary">
+				 				<!--<button class="btn btn-inverse" type="submit">Add to Cart</button>-->
+
+				<input type="submit" value="Add to Cart" style = "margin-top:-10px;" class="btn btn-primary">
              </form>
 		</div>
 	</div>
@@ -95,8 +100,14 @@
 								<div class="product-box">
 									<span class="sale_tag"></span>
 									<a href="product_detail.html">
-										<img alt="" src="themes/images/ladies/6.jpg"></a>
-										<br/>
+											<img src="{% if item.item_image %} {{ item.item_image.url }}
+                      {% else %} {% static 'img/default.jpg' %}
+                      {% endif %}"
+				 alt="{{ item.item_name}}">
+
+
+
+									<br/>
 									<a href="product_detail.html" class="title">{{ item.item_name }}</a><br/>
 									<a href="#" class="category">{{ item.item_group}}</a>
 									<p class="price">Rs. {{ item.price }}</p>
@@ -141,6 +152,9 @@
 		</div>
 	</div>
 </div>
+
+
+
 <div class="span3 col">
 	<div class="block">
 		<ul class="nav nav-list">

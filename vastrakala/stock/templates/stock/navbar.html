@@ -10,23 +10,22 @@
 		<div class="col-md-8">
 			<nav id="menu" class="pull-right">
 				<ul>
-					<li><a href="{% url 'stock:products' 0 %}">Sarees</a>
+					<li><a href="{% url 'stock:products' 2 %}">Sarees</a>
 						<ul>
 							<li><a href="">Mahapor</a></li>
 							<li><a href="">Mooklin</a></li>
 							<li><a href="">Monica</a></li>
 						</ul>
 					</li>
-					<li><a href="./products.html">Churidars</a></li>
+					<li><a href="{% url 'stock:products' 1 %}">Churidars</a></li>
 						<ul>
 							<li><a href="./products.html">Gifts and Tech</a></li>
 							<li><a href="./products.html">Ties and Hats</a></li>
 							<li><a href="./products.html">Cold Weather</a></li>
 						</ul>
 					</li>
-					<li><a href="./products.html">Jewels</a></li>
+					<li><a href="{% url 'stock:products' 3 %}">Jewels</a></li>
 				</ul>
-
 				<div class="row" style="margin-top: 6%">
          			<button class="btn btn-info pull-right">
 						{% with totail_items=cart|length %}
@@ -43,5 +42,14 @@
     			</div>
 			</nav>
 		</div>
+
 	</div>
 </section>
+
+	<!--<div class="container">-->
+						  <!--<button class="btn btn-default btn-lg btn-link"-->
+								  <!--style="font-size:36px;">-->
+							<!--<span class="glyphicon glyphicon-shopping-cart"></span>-->
+						  <!--</button>-->
+						  <!--<span class="badge badge-notify">6</span>-->
+						<!--</div>-->

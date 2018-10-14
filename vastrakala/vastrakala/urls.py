@@ -20,16 +20,23 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
+from core import views as core_views
 
 # from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^login/$', auth_views.login,{'template_name':'accounts/register.html'},name='login'),
-    url(r'^logout/$', auth_views.logout,{'next_page':'login'}, name='logout'),
+    # url(r'^login/$', auth_views.login,{'template_name':'accounts/register.html'},name='login'),
+
+    url(r'^login/$', core_views.home,name='home'),
+    # url(r'^login/$', core_views.signup,name='signup'),
+
+
+    url(r'^logout/$', auth_views.logout,{'next_page':'/'}, name='logout'),
 
     url(r'',include('stock.urls')),
+    url(r'^core/',include('core.urls')),
     url(r'^accounts/',include('accounts.urls')),
     url(r'^cart/', include('cart.urls')),
     url(r'^orders/', include('orders.urls')),
