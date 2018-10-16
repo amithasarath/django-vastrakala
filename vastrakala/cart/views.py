@@ -55,21 +55,27 @@ def cart_detail(request):
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddStockForm(initial={'quantity': item['quantity'], 'update': True})
+        if not 'product' in item.keys():
+            del item
+    for item in cart:
+        pass
     return render(request, 'cart/cart.html', {'cart': cart})
 
 
 def cart_remove(request, product_id):
-    print(product_id)
-    cart = Cart(request)
-    product = get_object_or_404(ItemStock, id=product_id)
-    cart.remove(product)
-    return redirect('cart:cart_detail')
+    if product_id:
+        cart = Cart(request)
+        product = get_object_or_404(ItemStock, id=product_id)
+        cart.remove(product)
+        return redirect('cart:cart_detail')
 
 
 def checkout(request):
     return render(request, 'cart/checkout.html')
 
+
 from django.contrib.auth import views as auth_views
+
 
 def checkout_login(request):
     # ... logic for logging in ...
