@@ -44,14 +44,38 @@ class ItemStockListView(generic.ListView):
         return ItemStock.objects.all()
 
 
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
+
 def item_stock_list(request,pk):
+
     if pk == "0":
         item_list = ItemStock.objects.all()
     else:
         # item_list = ItemStock.objects.filter(item_group__type = pk)
         item_list = ItemStock.objects.filter(item_group = pk)
+
+    # paginator = Paginator(item_list, 3)  # Show 25 contacts per page
+    # page = request.GET.get('page')
+    # stocks = paginator.get_page(page)
+
+    page = request.GET.get('page', 1)
+    print "------------"
+    print page
+
+    paginator = Paginator(item_list, 6)
+    print paginator
+    print paginator.count
+    print paginator.num_pages
+    try:
+        stocks = paginator.page(page)
+    except PageNotAnInteger:
+        stocks = paginator.page(1)
+    except EmptyPage:
+        stocks = paginator.page(paginator.num_pages)
     return render(request,'stock/products.html',{
-                                "item_list":item_list,
+                                "item_list":stocks,
+                                "group_id":pk,
                                 "item_groups":ItemGroup.objects.all()
         })
 
