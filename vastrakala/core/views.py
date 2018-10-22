@@ -67,14 +67,14 @@ def update_profile(request):
     if request.method == 'POST':
         # user_form = UserForm(request.POST, instance=request.user)
         # signup_form = SignUpForm(request.POST)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        profile_form = ProfileForm(request.POST, request.FILES,instance=request.user.profile)
 
         # if signup_form.is_valid() and profile_form.is_valid():
         if profile_form.is_valid():
             # signup_form.save()
             profile_form.save()
             # messages.success(request, _('Your profile was successfully updated!'))
-            return redirect('stock:index')
+            return redirect('accounts:my_account')
         # else: pass
             # messages.error(request, _('Please correct the error below.'))
     else:

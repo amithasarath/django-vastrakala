@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc22d68-0e31-4871-9656-92f09b7f7afd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/accounts/admin.py" afterPath="$PROJECT_DIR$/vastrakala/accounts/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html" afterPath="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html" afterPath="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/accounts/urls.py" afterPath="$PROJECT_DIR$/vastrakala/accounts/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/accounts/views.py" afterPath="$PROJECT_DIR$/vastrakala/accounts/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/core/admin.py" afterPath="$PROJECT_DIR$/vastrakala/core/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/core/forms.py" afterPath="$PROJECT_DIR$/vastrakala/core/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/core/models.py" afterPath="$PROJECT_DIR$/vastrakala/core/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/core/urls.py" afterPath="$PROJECT_DIR$/vastrakala/core/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/core/views.py" afterPath="$PROJECT_DIR$/vastrakala/core/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/static/stock/css/main.css" afterPath="$PROJECT_DIR$/vastrakala/stock/static/stock/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/static/stock/js/common.js" afterPath="$PROJECT_DIR$/vastrakala/stock/static/stock/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/templates/stock/all_time_1.html" afterPath="$PROJECT_DIR$/vastrakala/stock/templates/stock/all_time_1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/templates/stock/banner.html" afterPath="$PROJECT_DIR$/vastrakala/stock/templates/stock/banner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/templates/stock/base.html" afterPath="$PROJECT_DIR$/vastrakala/stock/templates/stock/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/stock/templates/stock/navbar.html" afterPath="$PROJECT_DIR$/vastrakala/stock/templates/stock/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vastrakala/vastrakala/urls.py" afterPath="$PROJECT_DIR$/vastrakala/vastrakala/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,21 +23,63 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vastrakala/vastrakala/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="599">
               <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vastrakala/core/models.py">
+      <file leaf-file-name="my_account.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="144">
+              <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vastrakala/core/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vastrakala/stock/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vastrakala/core/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,7 +169,6 @@
         <option value="$PROJECT_DIR$/vastrakala/accounts/admin.py" />
         <option value="$PROJECT_DIR$/vastrakala/stock/admin.py" />
         <option value="$PROJECT_DIR$/vastrakala/core/admin.py" />
-        <option value="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html" />
         <option value="$PROJECT_DIR$/vastrakala/stock/templates/stock/base.html" />
         <option value="$PROJECT_DIR$/vastrakala/stock/static/stock/js/common.js" />
         <option value="$PROJECT_DIR$/vastrakala/stock/templates/stock/navbar.html" />
@@ -150,15 +178,16 @@
         <option value="$PROJECT_DIR$/vastrakala/accounts/views.py" />
         <option value="$PROJECT_DIR$/vastrakala/accounts/urls.py" />
         <option value="$PROJECT_DIR$/vastrakala/stock/templates/stock/banner.html" />
-        <option value="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html" />
-        <option value="$PROJECT_DIR$/vastrakala/core/forms.py" />
         <option value="$PROJECT_DIR$/vastrakala/core/urls.py" />
         <option value="$PROJECT_DIR$/vastrakala/core/templates/core/404.html" />
         <option value="$PROJECT_DIR$/vastrakala/vastrakala/settings.py" />
-        <option value="$PROJECT_DIR$/vastrakala/core/views.py" />
         <option value="$PROJECT_DIR$/vastrakala/core/templates/core/500.html" />
         <option value="$PROJECT_DIR$/vastrakala/vastrakala/urls.py" />
         <option value="$PROJECT_DIR$/vastrakala/core/models.py" />
+        <option value="$PROJECT_DIR$/vastrakala/core/forms.py" />
+        <option value="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html" />
+        <option value="$PROJECT_DIR$/vastrakala/core/views.py" />
+        <option value="$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html" />
       </list>
     </option>
   </component>
@@ -228,21 +257,21 @@
               <item name="django-vastrakala" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-vastrakala" type="462c0819:PsiDirectoryNode" />
               <item name="vastrakala" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-vastrakala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-vastrakala" type="462c0819:PsiDirectoryNode" />
+              <item name="vastrakala" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-vastrakala" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-vastrakala" type="462c0819:PsiDirectoryNode" />
               <item name="vastrakala" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-vastrakala" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-vastrakala" type="462c0819:PsiDirectoryNode" />
-              <item name="vastrakala" type="462c0819:PsiDirectoryNode" />
               <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -340,7 +369,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26613545" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.52031875" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3538961" sideWeight="0.87649405" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3538961" sideWeight="0.87649405" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.48808607" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -550,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/stock/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="68" lean-forward="false" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vastrakala/stock/templates/stock/products.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -618,13 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/stock/templates/stock/all_time_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vastrakala/stock/templates/stock/all_time_2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
@@ -637,7 +651,7 @@
         <state relative-caret-position="1385">
           <caret line="443" column="28" lean-forward="false" selection-start-line="443" selection-start-column="28" selection-end-line="443" selection-end-column="28" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
+            <element signature="e#24#63#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -672,15 +686,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -692,31 +699,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/core/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vastrakala/core/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,31 +717,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="50" lean-forward="false" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vastrakala/vastrakala/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="55" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,21 +741,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vastrakala/vastrakala/urls.py">
+    <entry file="file://$PROJECT_DIR$/vastrakala/stock/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        <state relative-caret-position="18">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vastrakala/core/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="150">
+          <caret line="14" column="84" lean-forward="false" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/vastrakala/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="50" lean-forward="false" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/stock/templates/stock/all_time_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="33" column="76" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="33" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/core/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vastrakala/accounts/templates/accounts/my_account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

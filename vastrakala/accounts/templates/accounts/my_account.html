@@ -5,8 +5,8 @@
 {% block content %}
 
 <div class="span9">
-	<h4 class="title"><span class="text"><strong>My</strong>Addresses</span> </h4>
-	<h4>Your Personal Details</h4>
+	<h4 class="title"><span class="text"><strong>My</strong> Personal Data</span> </h4>
+	<h5>My Profile</h5>
 	<!--<div class="control-group">-->
 		<!--<label class="control-label">First Name</label>-->
 		<!--<div class="controls">-->
@@ -37,10 +37,37 @@
 			<!--<input type="text" placeholder="" class="input-xlarge">-->
 		<!--</div>-->
 	<!--</div>-->
-<form method="post" action="{% url 'accounts:my_account' %}">
+<form method="post" action="{% url 'accounts:my_account' %}"
+	  enctype="multipart/form-data">
 	{% csrf_token %}
+	{{ profile_form.non_field_errors }}
+<div class="fieldWrapper">
+    {{ profile_form.profile_image.errors }}
+    <label for="{{ profile_form.profile_image.id_for_label }}">Profile Photo:</label>
 
-	{{ profile_form }}
+	<img src="{% if profile_form.profile_image %}
+                                {{ profile_form.instance.profile_image.url }}
+                               {% else %}
+                                    {% static 'items/default.png' %}
+                                {% endif %}" alt="..." style="height:236px">
+	<br>
+	{{ profile_form.profile_image }}
+</div>
+<div class="fieldWrapper">
+    {{ profile_form.message.errors }}
+    <label for="{{ form.bio.id_for_label }}">Biodata:</label>
+    {{ profile_form.bio }}
+</div>
+<div class="fieldWrapper">
+    {{ profile_form.sender.errors }}
+    <label for="{{ form.location.id_for_label }}">Location:</label>
+    {{ profile_form.location }}
+</div>
+<div class="fieldWrapper">
+    {{ profile_form.cc_myself.errors }}
+    <label for="{{ form.birth_date.id_for_label }}">Birth Date:</label>
+    {{ profile_form.birth_date }}
+</div>
 	    <button type="submit" name="signup">Update Profile</button>
 
 </form>
