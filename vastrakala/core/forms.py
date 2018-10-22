@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from . models import Profile, Addresses
+from . models import Profile, Address
 
 
 class LoginForm(AuthenticationForm):
@@ -34,7 +34,7 @@ class ProfileForm(forms.ModelForm):
 
 class AddressForm(forms.ModelForm):
     class Meta:
-        model = Addresses
+        model = Address
         fields = ('house_no', 'city','landmark',
                   'district','state','country','pincode','mobile_number')
 

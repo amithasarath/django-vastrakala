@@ -20,7 +20,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-class Addresses(models.Model):
+class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     house_no = models.TextField(max_length=30, blank=True)
     city = models.CharField(max_length=30, blank=True)
@@ -33,6 +33,10 @@ class Addresses(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    class Meta:
+        verbose_name = 'Address'
+        verbose_name_plural = 'Addresses'
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

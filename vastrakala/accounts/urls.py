@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^customers/$',views.show_customers,name='customers'),
     url(r'^my-account/$',core_views.update_profile,name='my_account'),
     url(r'^profile/$',core_views.view_profile,name='profile'),
+    url(r'^address/$',core_views.add_address,name='address'),
 
     url(r'^delete-dealers/$',views.delete_dealer,name='delete_dealer'),
     url(r'^delete-resellers/$',views.delete_reseller,name='delete_reseller'),
