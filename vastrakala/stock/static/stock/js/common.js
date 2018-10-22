@@ -1,8 +1,8 @@
-(function() {
-	var $menu = $('#menu ul');
-	$('.navbar.main-menu').after('<div class="_toggleMenu"><a class="toggleMenu" href="#">- MENU -</a><ul class="nav"></ul></div>');
-	$('._toggleMenu .nav').html($menu.html());
-})();
+//(function() {
+//	var $menu = $('#menu ul');
+//	$('.navbar.main-menu').after('<div class="_toggleMenu"><a class="toggleMenu" href="#">- MENU -</a><ul class="nav"></ul></div>');
+//	$('._toggleMenu .nav').html($menu.html());
+//})();
 
 var ww = document.body.clientWidth;
 

@@ -11,3 +11,4 @@ urlpatterns = [
         {'template_name': 'accounts/register.html'}, name='login'),
 
 ]
+

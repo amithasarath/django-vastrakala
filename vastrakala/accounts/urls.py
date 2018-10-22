@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from core import views as core_views
 
 app_name = 'accounts'
 
@@ -8,7 +9,8 @@ urlpatterns = [
     url(r'^dealers/$',views.show_dealers,name='dealers'),
     url(r'^resellers/$',views.show_resellers,name='resellers'),
     url(r'^customers/$',views.show_customers,name='customers'),
-    url(r'^my-account/$',views.my_account,name='my-account'),
+    url(r'^my-account/$',core_views.update_profile,name='my_account'),
+    url(r'^profile/$',core_views.view_profile,name='profile'),
 
     url(r'^delete-dealers/$',views.delete_dealer,name='delete_dealer'),
     url(r'^delete-resellers/$',views.delete_reseller,name='delete_reseller'),

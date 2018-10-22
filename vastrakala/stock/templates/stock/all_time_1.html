@@ -63,12 +63,18 @@ $('.multi-item-carousel .item').each(function(){
   var next = $(this).next();
   if (!next.length) {
     next = $(this).siblings(':first');
+    console.log($(this))
+    console.log(next)
+    console.log(next.length)
+    <!--console.log(next.length)-->
+    <!--console.log(next.length)-->
   }
   next.children(':first-child').clone().appendTo($(this));
 
   if (next.next().length>0) {
     next.next().children(':first-child').clone().appendTo($(this));
-  } else {
+  }
+  else {
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });

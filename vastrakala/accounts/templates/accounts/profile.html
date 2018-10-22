@@ -1,0 +1,44 @@
+{% extends "stock/base.html" %}
+{% load static %}
+
+{% block content %}	
+<div class="span5">					
+	<h4 class="title"><span class="text"><strong>Profile</strong> Update</span></h4>
+
+
+    <!--<form  method="post" action="{% url 'core:login' %}">-->
+		<!--{% csrf_token %} {{ login_form }}-->
+        <!--<input type="hidden" name="next" value="{{ next }}" />-->
+				<!--<input tabindex="3" class="btn btn-inverse large" name ="signin"-->
+					   <!--type="submit" value="Sign into your account">-->
+				<!--<hr>-->
+    <!--</form>-->
+
+
+
+	<form  method="post" action="{% url 'accounts:profile' %}">
+		{% csrf_token %}
+		<h1> Profile</h1>
+		<p>User:{{ user }}</p>
+       <p>Username {{ user.username }}</p>
+    <p>   Email ID: {{ user.email }}</p>
+    <p>   Biodata: {{ user.profile.bio }}</p>
+    <p>   Location: {{ user.profile.location }}</p>
+    <p>   Birth date: {{ user.profile.birth_date }}</p>
+
+        <!--{{ profile_form }}-->
+  <!--<button type="submit" name="signup">Update</button>-->
+	</form>
+
+</div>
+
+
+
+
+
+
+
+				
+			
+
+{% endblock %}

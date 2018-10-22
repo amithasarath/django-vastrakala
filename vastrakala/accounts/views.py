@@ -445,5 +445,5 @@ class DealerDelete(APIView):
 
 
 
-def my_account(request):
-    return render(request,"accounts/my_account.html")
+# def my_account(request):
+#     return render(request,"accounts/my_account.html")

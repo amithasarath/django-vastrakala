@@ -1,4 +1,5 @@
 {% load static %}
+
 <div id="top-bar" class="container">
 	<div class="row">
 		<div class="span4">
@@ -10,7 +11,7 @@
 		<div class="span8">
 			<div class="account pull-right">
 				<ul class="user-menu">
-					<li><a href="{% url 'accounts:my-account' %}">My Account</a></li>
+					<li><a href="{% url 'accounts:my_account' %}">My Account</a></li>
 					<li>
 						<a href="{% url 'cart:cart_detail' %}">My Cart</a>
 						{% with totail_items=cart|length %}

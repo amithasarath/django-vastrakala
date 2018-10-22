@@ -773,7 +773,9 @@ section.our_client .row{
 	.product-box:hover a{
 		color:#333 !important;
 	}
-	#menu ul{display: none;}
+
+	/* #menu ul{display: none;} */
+
 	.navbar-inner.main-menu a.logo{
 		left:50%;
 		margin-left:-99px;

@@ -7,36 +7,43 @@
 <div class="span9">
 	<h4 class="title"><span class="text"><strong>My</strong>Addresses</span> </h4>
 	<h4>Your Personal Details</h4>
-	<div class="control-group">
-		<label class="control-label">First Name</label>
-		<div class="controls">
-			<input type="text" placeholder="" class="input-xlarge">
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Last Name</label>
-		<div class="controls">
-			<input type="text" placeholder="" class="input-xlarge">
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Email Address</label>
-		<div class="controls">
-			<input type="text" placeholder="" class="input-xlarge">
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Telephone</label>
-		<div class="controls">
-			<input type="text" placeholder="" class="input-xlarge">
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Fax</label>
-		<div class="controls">
-			<input type="text" placeholder="" class="input-xlarge">
-		</div>
-	</div>
+	<!--<div class="control-group">-->
+		<!--<label class="control-label">First Name</label>-->
+		<!--<div class="controls">-->
+			<!--<input type="text" placeholder="" class="input-xlarge">-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="control-group">-->
+		<!--<label class="control-label">Last Name</label>-->
+		<!--<div class="controls">-->
+			<!--<input type="text" placeholder="" class="input-xlarge">-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="control-group">-->
+		<!--<label class="control-label">Email Address</label>-->
+		<!--<div class="controls">-->
+			<!--<input type="text" placeholder="" class="input-xlarge">-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="control-group">-->
+		<!--<label class="control-label">Telephone</label>-->
+		<!--<div class="controls">-->
+			<!--<input type="text" placeholder="" class="input-xlarge">-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="control-group">-->
+		<!--<label class="control-label">Fax</label>-->
+		<!--<div class="controls">-->
+			<!--<input type="text" placeholder="" class="input-xlarge">-->
+		<!--</div>-->
+	<!--</div>-->
+<form method="post" action="{% url 'accounts:my_account' %}">
+	{% csrf_token %}
+
+	{{ profile_form }}
+	    <button type="submit" name="signup">Update Profile</button>
+
+</form>
 </div>
 
 <div class="span9">
