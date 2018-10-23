@@ -6,15 +6,16 @@
 
 <div class="span3">
 	<h4 class="title"><span class="text"><strong>My</strong> Personal Data</span> </h4>
-	<h5>My Addresses</h5>
+	<h5>Shipping Addresses</h5>
 
 
 
-<form method="post" action="{% url 'accounts:address' %}">
+<!--<form method="post" action="{% url 'accounts:address' %}">-->
+<form method="post">
     {% csrf_token %}
     {{ address_form }}
     <br>
-    <button class= "btn btn-info" type="submit" name="add_address">Add Adress</button>
+    <button class= "btn btn-info" type="submit" name="add_address">SAVE</button>
 
 </form>
 
@@ -27,6 +28,8 @@
         {% for address in address_list %}
             <div class="well">
                 <li>
+                    <ol>ID:{{ address.id}} </ol>
+                    <ol><b>{{ user.first_name}} {{ user.last_name }}</b></ol>
                     <ol>{{ address.house_no}}</ol>
                     <ol>{{ address.city}}</ol>
                     <ol>{{ address.landmark}}</ol>
@@ -35,9 +38,11 @@
                     <ol>{{ address.country}}</ol>
                     <ol>{{ address.pincode}}</ol>
                     <ol>{{ address.mobile_number}}</ol>
-                    <a href="">Edit</a> |
-                    <a href="">Delete</a> |
-                    <a href="">Set as Default</a>
+                    <a href="{% url 'accounts:edit-address' address.id %}" style="color:blue">Edit</a> |
+                    <a href="{% url 'accounts:delete-address' address.id %}" style="color:blue">Delete</a>
+                    {% if not address.is_default %}
+                    | <a href="{% url 'accounts:default-address' address.id %}" style="color:blue">Set as Default</a>
+                    {% endif %}
                 </li>
             </div>
         {% endfor %}

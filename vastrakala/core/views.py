@@ -100,3 +100,36 @@ def add_address(request):
     return render(request,'core/address.html',{'address_form':address_form,
                                                'address_list': all_addresses
                                                })
+
+
+def delete_address(request,pk):
+    address = get_object_or_404(Address, pk=pk)
+    address.delete()
+    return redirect('accounts:address')
+
+
+def edit_address(request,pk):
+    address = get_object_or_404(Address,pk=pk)
+    if request.method == 'POST':
+        address_form = AddressForm(request.POST, instance = address)
+        if address_form.is_valid():
+            address_form.save()
+            return redirect('accounts:address')
+    else:
+        address_form = AddressForm(instance = address)
+        all_addresses = Address.objects.filter(user=request.user)
+    return render(request, 'core/address.html', {'address_form': address_form,
+                                                 'address_list': all_addresses
+                                                 })
+
+
+def set_default_address(request,pk):
+    default_address= Address.objects.get(pk=pk)
+    default_address.is_default =1
+    default_address.save(update_fields=['is_default'])
+    unset_address_list = Address.objects.all().filter(user=request.user).exclude(id=pk)
+    for address in unset_address_list:
+        address.is_default = 0
+        address.save(update_fields=['is_default'])
+    return redirect('accounts:address')
+

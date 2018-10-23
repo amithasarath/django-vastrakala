@@ -15,9 +15,9 @@ admin.site.register(Profile,ProfileAdmin)
 
 
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ['user','house_no','city','landmark','district','state','country','pincode','mobile_number']
-    list_filter = ['user','house_no','city','landmark','district','state','country','pincode','mobile_number']
-    list_editable = ['house_no','city','landmark','district','state','country','pincode','mobile_number']
+    list_display = ['id','user','is_default','house_no','city','landmark','district','state','country','pincode','mobile_number']
+    list_filter = ['user','is_default','city','landmark','district','state','country','pincode']
+    list_editable = ['house_no','is_default','city','landmark','district','state','country','pincode','mobile_number']
     # prepopulated_fields = {'slug': ('group',)}
 
 

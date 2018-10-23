@@ -12,6 +12,9 @@ urlpatterns = [
     url(r'^my-account/$',core_views.update_profile,name='my_account'),
     url(r'^profile/$',core_views.view_profile,name='profile'),
     url(r'^address/$',core_views.add_address,name='address'),
+    url(r'^address/(?P<pk>\d+)/remove/$',core_views.delete_address,name='delete-address'),
+    url(r'^address/(?P<pk>\d+)/edit/$',core_views.edit_address,name='edit-address'),
+    url(r'^address/(?P<pk>\d+)/default/$',core_views.set_default_address,name='default-address'),
 
     url(r'^delete-dealers/$',views.delete_dealer,name='delete_dealer'),
     url(r'^delete-resellers/$',views.delete_reseller,name='delete_reseller'),

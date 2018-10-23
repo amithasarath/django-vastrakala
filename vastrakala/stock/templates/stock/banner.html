@@ -11,7 +11,11 @@
 		<div class="span8">
 			<div class="account pull-right">
 				<ul class="user-menu">
+					{% if user.is_authenticated %}
 					<li><a href="{% url 'accounts:my_account' %}">My Account</a></li>
+					<li><a href="{% url 'accounts:profile' %}">My profile</a></li>
+					<li><a href="{% url 'accounts:address' %}">My Addresses</a></li>
+					{% endif %}
 					<li>
 						<a href="{% url 'cart:cart_detail' %}">My Cart</a>
 						{% with totail_items=cart|length %}

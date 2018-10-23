@@ -22,7 +22,7 @@ class Profile(models.Model):
 
 class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    house_no = models.TextField(max_length=30, blank=True)
+    house_no = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=30, blank=True)
     landmark = models.CharField(max_length=30, blank=True)
     district = models.CharField(max_length=30, blank=True)
@@ -30,6 +30,7 @@ class Address(models.Model):
     country = models.CharField(max_length=30, blank=True)
     pincode = models.IntegerField(blank=True)
     mobile_number = models.IntegerField(blank=True)
+    is_default = models.BooleanField(default=0)
 
     def __str__(self):
         return self.user.username
