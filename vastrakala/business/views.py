@@ -16,3 +16,15 @@ def blank(request):
 
 def create_order(request):
     return render(request,'business/form_sales_order.html')
+
+
+def create_customer(request):
+    return render(request,'business/customer.html')
+
+
+def create_reseller(request):
+    return render(request,'business/reseller.html')
+
+
+def create_dealer(request):
+    return render(request,'business/dealer.html')

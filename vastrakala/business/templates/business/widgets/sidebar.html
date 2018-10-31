@@ -3,7 +3,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="index.html">
+            <a class="" href="{% url 'business:business' %}">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -18,9 +18,7 @@
               <li><a class="" href="form_component.html">Form Elements</a></li>
               <li><a class="" href="form_validation.html">Form Validation</a></li>
               <li><a class="" href="{% url 'business:create_order' %}">New Order</a></li>
-              <li><a class="" href="form_validation.html">Customer</a></li>
-              <li><a class="" href="form_validation.html">Reseller</a></li>
-              <li><a class="" href="form_validation.html">Dealer</a></li>
+
             </ul>
           </li>
           <li class="sub-menu">
@@ -59,9 +57,9 @@
             <ul class="sub">
               <li><a class="" href="basic_table.html">Basic Table</a></li>
               <li><a class="" href="basic_table.html">Orders</a></li>
-              <li><a class="" href="basic_table.html">Customers</a></li>
-              <li><a class="" href="basic_table.html">Resellers</a></li>
-              <li><a class="" href="basic_table.html">Dealers</a></li>
+              <li><a class="" href="{% url 'business:customer' %}">Customer</a></li>
+              <li><a class="" href="{% url 'business:reseller' %}">Reseller</a></li>
+              <li><a class="" href="{% url 'business:dealer' %}">Dealer</a></li>
             </ul>
           </li>
 

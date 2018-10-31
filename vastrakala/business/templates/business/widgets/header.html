@@ -1,11 +1,11 @@
-
+{% load static %}
     <header class="header dark-bg">
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
 
       <!--logo start-->
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="index.html" class="logo">Aswini's <span class="lite">Vasthrakala</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -224,9 +224,13 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="avatar" src="{% if user.profile.profile_image %}
+                                {{ user.profile.profile_image.url }}
+                               {% else %}
+                                    {% static 'items/default.png' %}
+                                {% endif %}" width="30px" height="30px">
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username">{{ user }}</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">

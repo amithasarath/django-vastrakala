@@ -17,11 +17,6 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = '__all__'
-        widgets = {
-            'customer_name': forms.TextInput(attrs={
-                'class': "form-control"
-            })
-        }
 
 
 class SalesOrderForm(forms.ModelForm):

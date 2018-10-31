@@ -70,18 +70,21 @@ def show_resellers(request):
     return  render(request,'accounts/reseller.html',{'form':form,'resellers':all_resellers})
 
 
-def show_customers(request):
-    # all_customers = Customer.objects.filter().order_by('id')
+def show_customers(request,pk=None):
     all_customers = Customer.objects.order_by('id').reverse()
-    if request.method == "POST":
-        form = CustomerForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("accounts:customers"))
-    else:
-        form = CustomerForm()
 
-    return  render(request,'accounts/customer.html',{'form':form,'customers':all_customers})
+    if request.method == "POST":
+        cust = get_object_or_404(Customer, pk=pk) if pk else None
+        form = CustomerForm(data=request.POST, instance=cust)
+
+        if form.is_valid():
+            cust = form.save(commit=False)
+            cust.save()
+            return HttpResponseRedirect(reverse("business:customer"))
+    else:
+        cust = get_object_or_404(Customer, pk=pk) if pk else None
+        form = CustomerForm(instance=cust)
+        return render(request, 'business/customer.html', {'form': form, 'customers': all_customers})
 
 
 def make_so(request):
@@ -189,13 +192,22 @@ def delete_reseller(request):
 
 
 def delete_customer(request):
+    all_customers = Customer.objects.order_by('id').reverse()
+
     if request.method == "POST":
         customer_id = request.POST.get("customer_id")
         customer = Customer.objects.get(id = customer_id)
+        # if 'edit' in request.POST:
+        #     cust = get_object_or_404(Customer, pk=customer_id)
+        #     form = CustomerForm(instance = cust)
+        #     print form
+        #     return render(request, 'business/customer.html', {'form': form,'customers':all_customers})
+        #
+        # if 'delete' in request.POST:
         customer.delete()
-        return HttpResponseRedirect(reverse("accounts:customers"))
+        return HttpResponseRedirect(reverse("business:customer"))
     else:
-        return HttpResponseRedirect(reverse("accounts:customers"))
+        return HttpResponseRedirect(reverse("business:customer"))
 
 
 class SalesOrderSearchView(generic.ListView): #Not using now
