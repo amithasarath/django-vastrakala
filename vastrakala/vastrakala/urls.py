@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls')),
     url(r'^orders/', include('orders.urls')),
     url(r'^shop/',include('shop.urls')),
+    url(r'^business/',include('business.urls')),
 
     # url(r'^accounts/$',   include('django.contrib.auth.urls')),
 ]+  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

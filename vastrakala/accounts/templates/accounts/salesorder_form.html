@@ -4,7 +4,7 @@
 
 {% block admin_content %}
 
-  <p>  Please add the details of Sales Order</p>
+  <p> <strong> Please add the details of Sales Order</strong></p>
 
 <!--<form action="{% url 'accounts:make_so' %}" method="POST" class="form-horizontal">-->
     <!--{% csrf_token %}-->
@@ -22,29 +22,29 @@
     <!--<input type="submit" value="Save">-->
 <!--</form>-->
 
-    <table class="table table-bordered">
-        <form  action="{% url 'accounts:make_so' %}" method="POST">
+    <table class="table">
+        <form  action="{% url 'accounts:make_so' %}" method="POST" >
             {% csrf_token %}
             <tr>
-                <td>Order Status</td>
+                <td>{{ form.order_status.label_tag }}</td>
                 <td> {{ form.order_status}}</td>
             </tr>
             <tr>
-                <td>Client Type</td>
+                <td>{{form.client_type.label_tag}}</td>
                 <td> {{ form.client_type}}</td>
             </tr>
-            <tr>
-                <td>Is New reseller</td>
-                <td> {{ form.new_reseller}}</td>
-            </tr>
+            <!--<tr>-->
+                <!--<td>Is New reseller</td>-->
+                <!--<td> {{ form.new_reseller}}</td>-->
+            <!--</tr>-->
             <tr>
                 <td>Reseller name</td>
                 <td> {{ form.reseller }}</td>
             </tr>
-            <tr>
-                <td>Is New Customer</td>
-                <td> {{ form.new_customer}}</td>
-            </tr>
+            <!--<tr>-->
+                <!--<td>Is New Customer</td>-->
+                <!--<td> {{ form.new_customer}}</td>-->
+            <!--</tr>-->
             <tr>
                 <td>Customer Name</td>
                 <td> {{ form.customer}}</td>
@@ -55,7 +55,11 @@
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td> {{ form.qty}}</td>
+                <!--<td> {{ form.qty}}</td>-->
+                <td>
+                    <input type="number" class ="form-control" name="qty" value="False" required="" id="id_qty">
+
+                </td>
             </tr>
             <tr>
                 <td>Booking Date</td>
@@ -79,9 +83,27 @@
             </tr>
             <tr>
                 <td colspan="2">
-                <input type ="submit" value="Save the Order">
+                <input type ="submit" class="" value="Save the Order">
                 </td>
             </tr>
+
+<!--{% for hidden_field in form.hidden_fields %}-->
+    <!--{{ hidden_field }}-->
+  <!--{% endfor %}-->
+
+  <!--{% for field in form.visible_fields %}-->
+    <!--<div class="form-group">-->
+    <!--&lt;!&ndash;<div class="fieldWrapper">&ndash;&gt;-->
+    <!--{{ field.errors}}-->
+      <!--{{ field.label_tag }}  {{ field }}-->
+      <!--{% if field.help_text %}-->
+        <!--<small class="form-text text-muted">{{ field.help_text | safe }}</small>-->
+      <!--{% endif %}-->
+    <!--</div>-->
+  <!--{% endfor %}-->
+
+  <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+
         </form>
     </table>
 

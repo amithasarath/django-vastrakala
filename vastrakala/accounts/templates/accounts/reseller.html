@@ -10,8 +10,14 @@
         <tr>
             <form action="#" method="POST">
                 {% csrf_token %}
-                <td>{{ form.reseller_name }}</td>
-                <td><button class="btn btn-success" type="submit" value="Add Reseller" />Add</td>
+                <!--<td>{{ form.reseller_name }}</td>-->
+                <td>
+                <input class="form-control" type="text" name="reseller_name" required="" id="id_reseller_name" maxlength="100">
+
+                </td>
+                <td>
+                    <input class="btn btn-success" type="submit" value="Add Reseller" />
+                </td>
                 <td></td>
             </form>
         </tr>

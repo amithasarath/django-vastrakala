@@ -46,9 +46,9 @@ class SalesOrder(models.Model):
     )
     client_type     = models.ForeignKey(ClientType,on_delete=models.CASCADE)
     reseller        = models.ForeignKey(Reseller,on_delete=models.CASCADE,blank=True,null=True)
-    new_reseller    = models.BooleanField(default=False)
+    # new_reseller    = models.BooleanField(default=False)
     customer        = models.ForeignKey(Customer,on_delete=models.CASCADE)
-    new_customer    = models.BooleanField(default=False)
+    # new_customer    = models.BooleanField(default=False)
     type            = models.ForeignKey('stock.ItemType',on_delete=models.CASCADE)
     cost_price      =   models.DecimalField(max_digits=10,decimal_places=2,blank=True,null=True)
     selling_price   =   models.DecimalField(max_digits=10,decimal_places=2,blank=True,null=True)
@@ -63,4 +63,5 @@ class SalesOrder(models.Model):
 
     def __int__(self):
         return self.id
+
     

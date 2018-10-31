@@ -46,10 +46,26 @@ def show_resellers(request):
     if request.method == "POST":
         form = ResellerForm(data=request.POST)
         if form.is_valid():
+            # print form.is_bound
+            # print form.cleaned_data
+            print form.cleaned_data['reseller_name']
+
+            print form.fields
+            # for row in form.fields.keys():
+            for row in form.fields.values():
+                print row
+            print "------"
+            print form.fields['reseller_name']
+            print form.as_table().split('\n')[0]
+            print form.as_ul()
+
             form.save()
             return HttpResponseRedirect(reverse("accounts:resellers"))
     else:
+        # form = ResellerForm(auto_id=False)
+        # form = ResellerForm(initial={'reseller_name':'Aravind mani'})
         form = ResellerForm()
+        # form.field_order=[]
 
     return  render(request,'accounts/reseller.html',{'form':form,'resellers':all_resellers})
 
@@ -79,7 +95,7 @@ def make_so(request):
             # messages.info(request, 'Your order has been saved successfully!')
             return HttpResponseRedirect(reverse("accounts:make_so"))
     else:
-        form = SalesOrderForm()
+        form = SalesOrderForm(initial={'order_status':'B'})
 
     return render(request,'accounts/salesorder_form.html',{'form':form,"orders":all_orders})
 

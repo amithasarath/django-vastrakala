@@ -21,3 +21,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+
+
+# class OrderItemAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'order', 'price', 'product', 'quantity']
+#     list_filter = ['order']
+#     inlines = [OrderItemInline]

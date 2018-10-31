@@ -305,7 +305,9 @@
 								<textarea rows="3" id="textarea" class="span12"></textarea>
 							</div>
 						</div>
-						<button class="btn btn-inverse pull-right">Confirm order</button>
+						<a href="{% url 'orders:order_create' %}">
+							<button class="btn btn-inverse pull-right">Confirm order</button>
+						</a>
 					</div>
 				</div>
 			</div>

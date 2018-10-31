@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load staticfiles %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,7 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -72,18 +74,20 @@
 </style>
 
 </head>
-<body>
 
+
+
+<body>
 <!--Navigation menu-->
 <nav class="navbar navbar-custom">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <!--<a class="navbar-brand" href="#">Vastrakala Online Boutique</a>-->
-       <img src="{% static 'stock/img/vastrakala/logo.jpg' %}"
-            class="img-responsive img-circle margin" style="display:inline"
-            alt="Bird" width="150" height="150">
+    <!--<div class="navbar-header">-->
+      <!--&lt;!&ndash;<a class="navbar-brand" href="#">Vastrakala Online Boutique</a>&ndash;&gt;-->
+       <!--<img src="{% static 'stock/img/vastrakala/logo.jpg' %}"-->
+            <!--class="img-responsive img-circle margin" style="display:inline"-->
+            <!--alt="Bird" width="150" height="150">-->
 
-    </div>
+    <!--</div>-->
     <ul class="nav navbar-nav">
         <li>
 
