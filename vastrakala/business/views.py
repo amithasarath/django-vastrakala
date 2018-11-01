@@ -28,3 +28,7 @@ def create_reseller(request):
 
 def create_dealer(request):
     return render(request,'business/dealer.html')
+
+
+def order_list(request):
+    return render(request,'business/order.html')

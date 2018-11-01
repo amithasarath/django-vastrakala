@@ -26,67 +26,6 @@ from .serializers import  SalesOrderSerializer,DealerSerializer
 def showDashboard(request):
     return render(request,'accounts/dashboard.html')
 
-
-def show_dealers(request):
-    all_dealers = Dealer.objects.all()
-    if request.method == "POST":
-        form = DealerForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("accounts:dealers"))
-    else:
-        form = DealerForm()
-
-    return  render(request,'accounts/dealer.html',{'form':form,'dealers':all_dealers})
-
-
-def show_resellers(request):
-    # all_resellers = Reseller.objects.all()
-    all_resellers = Reseller.objects.order_by('id').reverse()
-    if request.method == "POST":
-        form = ResellerForm(data=request.POST)
-        if form.is_valid():
-            # print form.is_bound
-            # print form.cleaned_data
-            print form.cleaned_data['reseller_name']
-
-            print form.fields
-            # for row in form.fields.keys():
-            for row in form.fields.values():
-                print row
-            print "------"
-            print form.fields['reseller_name']
-            print form.as_table().split('\n')[0]
-            print form.as_ul()
-
-            form.save()
-            return HttpResponseRedirect(reverse("accounts:resellers"))
-    else:
-        # form = ResellerForm(auto_id=False)
-        # form = ResellerForm(initial={'reseller_name':'Aravind mani'})
-        form = ResellerForm()
-        # form.field_order=[]
-
-    return  render(request,'accounts/reseller.html',{'form':form,'resellers':all_resellers})
-
-
-def show_customers(request,pk=None):
-    all_customers = Customer.objects.order_by('id').reverse()
-
-    if request.method == "POST":
-        cust = get_object_or_404(Customer, pk=pk) if pk else None
-        form = CustomerForm(data=request.POST, instance=cust)
-
-        if form.is_valid():
-            cust = form.save(commit=False)
-            cust.save()
-            return HttpResponseRedirect(reverse("business:customer"))
-    else:
-        cust = get_object_or_404(Customer, pk=pk) if pk else None
-        form = CustomerForm(instance=cust)
-        return render(request, 'business/customer.html', {'form': form, 'customers': all_customers})
-
-
 def make_so(request):
     all_orders = SalesOrder.objects.all()
     if request.method == "POST":
@@ -100,7 +39,8 @@ def make_so(request):
     else:
         form = SalesOrderForm(initial={'order_status':'B'})
 
-    return render(request,'accounts/salesorder_form.html',{'form':form,"orders":all_orders})
+    return render(request,'business/form_sales_order.html',{'form':form,"orders":all_orders})
+    # return render(request,'accounts/salesorder_form.html',{'form':form,"orders":all_orders})
 
 
 def update_so(request,pk):
@@ -155,20 +95,40 @@ class SalesOrderDetailView(generic.DetailView):
         return context
 
 
+########################## ORDERS ##########################################
+
 class SOListView(generic.ListView):
     model = SalesOrder
     # OR
     # queryset = SalesOrder.objects.all()
-    template_name = "accounts/order_list.html"
+    # template_name = "accounts/order_list.html"
+    template_name = "business/order.html"
     context_object_name = "all_orders"
     profit = SalesOrder.objects.all().aggregate(Sum('selling_price'))
 
     def get_context_data(self, **kwargs):
         context = super(SOListView, self).get_context_data(**kwargs)
-        context['profit'] = SalesOrder.objects.all().aggregate(Sum('selling_price'))
-                            # - SalesOrder.objects.all().aggregate(Sum('cost_price'))
+        context['profit'] = SalesOrder.objects.all().aggregate(Sum('selling_price')).get('selling_price__sum', 0.00) - SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
+        context['cp'] = SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
         context['sp'] = SalesOrder.objects.all().aggregate(Sum('selling_price'))
         return context
+
+######################### DEALERS ##################################################
+
+def show_dealers(request, pk=None):
+    all_dealers = Dealer.objects.all()
+    dealer = get_object_or_404(Dealer,pk=pk) if pk else None
+
+    if request.method == "POST":
+        form = DealerForm(data=request.POST, instance=dealer)
+        if form.is_valid():
+            dealer = form.save(commit= False)
+            dealer.save()
+            return HttpResponseRedirect(reverse("business:dealer"))
+    else:
+        form = DealerForm(instance= dealer)
+
+    return  render(request,'business/dealer.html',{'form':form,'dealers':all_dealers})
 
 
 def delete_dealer(request):
@@ -176,9 +136,25 @@ def delete_dealer(request):
         dealer_id = request.POST.get("dealer_id")
         dealer = Dealer.objects.get(dealer_code = dealer_id)
         dealer.delete()
-        return HttpResponseRedirect(reverse("accounts:dealers"))
+        return HttpResponseRedirect(reverse("business:dealer"))
     else:
-        return HttpResponseRedirect(reverse("accounts:dealers"))
+        return HttpResponseRedirect(reverse("business:dealer"))
+
+
+######################### RESELLERS ##################################################
+
+def show_resellers(request,pk=None):
+    all_resellers = Reseller.objects.order_by('id').reverse()
+    reseller = get_object_or_404(Reseller,pk=pk) if pk else None
+    if request.method == "POST":
+        form = ResellerForm(data=request.POST, instance= reseller)
+        if form.is_valid():
+            reseller = form.save(commit= False)
+            reseller.save()
+            return HttpResponseRedirect(reverse("business:reseller"))
+    else:
+        form = ResellerForm(instance= reseller)
+    return  render(request,'business/reseller.html',{'form':form,'resellers':all_resellers})
 
 
 def delete_reseller(request):
@@ -186,28 +162,39 @@ def delete_reseller(request):
         reseller_id = request.POST.get("reseller_id")
         reseller = Reseller.objects.get(id = reseller_id)
         reseller.delete()
-        return HttpResponseRedirect(reverse("accounts:resellers"))
+        return HttpResponseRedirect(reverse("business:reseller"))
     else:
-        return HttpResponseRedirect(reverse("accounts:resellers"))
+        return HttpResponseRedirect(reverse("business:reseller"))
+
+######################### CUSTOMERS ##################################################
+
+def show_customers(request,pk=None):
+    all_customers = Customer.objects.order_by('id').reverse()
+    customer = get_object_or_404(Customer, pk=pk) if pk else None
+
+    if request.method == "POST":
+        form = CustomerForm(data=request.POST, instance=customer)
+
+        if form.is_valid():
+            customer = form.save(commit=False)
+            customer.save()
+            return HttpResponseRedirect(reverse("business:customer"))
+    else:
+        form = CustomerForm(instance=customer)
+        return render(request, 'business/customer.html', {'form': form, 'customers': all_customers})
 
 
 def delete_customer(request):
-    all_customers = Customer.objects.order_by('id').reverse()
-
     if request.method == "POST":
         customer_id = request.POST.get("customer_id")
         customer = Customer.objects.get(id = customer_id)
-        # if 'edit' in request.POST:
-        #     cust = get_object_or_404(Customer, pk=customer_id)
-        #     form = CustomerForm(instance = cust)
-        #     print form
-        #     return render(request, 'business/customer.html', {'form': form,'customers':all_customers})
-        #
-        # if 'delete' in request.POST:
         customer.delete()
         return HttpResponseRedirect(reverse("business:customer"))
     else:
         return HttpResponseRedirect(reverse("business:customer"))
+
+
+#################################################################################
 
 
 class SalesOrderSearchView(generic.ListView): #Not using now

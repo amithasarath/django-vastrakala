@@ -22,108 +22,110 @@
                 Add New Order
               </header>
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <form class="form-horizontal " method="POST">
+                    {% csrf_token %}
+
                     <div class="form-group">
-                        <label class="control-label col-lg-2" for="inputSuccess">
+                        <label class="control-label col-lg-2">
                             Order Status
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10">{{ form.order_status}}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
                     <!--</div>-->
                     <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2" for="inputSuccess">
+                        <label class="control-label col-lg-2">
                             Client Type
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10">{{ form.client_type}}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
                     <!--</div>-->
                     <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2" for="inputSuccess">
+                        <label class="control-label col-lg-2">
                             Reseller
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10"> {{ form.reseller }}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
                     <!--</div>-->
                     <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2" for="inputSuccess">
+                        <label class="control-label col-lg-2">
                             Customer
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10">{{ form.customer }}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
                     <!--</div>-->
                     <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2" for="inputSuccess">
+                        <label class="control-label col-lg-2">
                             Item Type
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10">{{ form.type }}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
 
                         <label class="col-sm-2 control-label">Quantity</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control m-bot15">
+                        <div class="col-sm-10"> {{ form.qty}}
+                          <!--<input type="number" class="form-control m-bot15">-->
                         </div>
 
                         <label class="control-label col-sm-2">Booking Date</label>
-                        <div class="col-sm-10">
-                          <input id="dp1" type="text" value="28-10-2013" size="16" class="form-control m-bot15">
+                        <div class="col-sm-10"> {{ form.booking_date }}
+                          <!--<input id="dp1" type="text" value="28-10-2013" size="16" class="form-control m-bot15">-->
                         </div>
 
                         <label class="col-sm-2 control-label">Buying Price</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control m-bot15">
+                        <div class="col-sm-10"> {{ form.cost_price}}
+                          <!--<input type="number" class="form-control m-bot15">-->
                         </div>
 
                         <label class="col-sm-2 control-label">Selling Price</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control m-bot15">
+                        <div class="col-sm-10"> {{ form.selling_price }}
+                          <!--<input type="number" class="form-control m-bot15">-->
                         </div>
 
-                         <label class="control-label col-lg-2" for="inputSuccess">
-                            Dealer
-                        </label>
-                        <div class="col-lg-10">
+                         <label class="col-sm-2 control-label">Dealer</label>
+                        <div class="col-lg-10"> {{ form.dealer }}
 
-                            <select class="form-control m-bot15">
-                                                  <option>Option 1</option>
-                                                  <option>Option 2</option>
-                                                  <option>Option 3</option>
-                            </select>
+                            <!--<select class="form-control m-bot15">-->
+                                                  <!--<option>Option 1</option>-->
+                                                  <!--<option>Option 2</option>-->
+                                                  <!--<option>Option 3</option>-->
+                            <!--</select>-->
                         </div>
 
                         <label class="col-sm-2 control-label">Tracking ID</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control m-bot15">
+                        <div class="col-sm-10"> {{ form.tracking_id }}
+                          <!--<input type="number" class="form-control m-bot15">-->
                         </div>
+
+
 
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
@@ -132,6 +134,8 @@
 
 
                     </div>
+
+
                 </form>
 
 {% endblock business-content %}

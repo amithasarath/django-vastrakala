@@ -7,6 +7,7 @@ class SalesOrderSerializer(serializers.ModelSerializer):
         model = SalesOrder
         fields = "__all__"
 
+
 class DealerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dealer

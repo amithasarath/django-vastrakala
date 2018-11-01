@@ -7,11 +7,26 @@ class DealerForm(forms.ModelForm):
     class Meta:
         model = Dealer
         fields = '__all__'
+        widgets = {
+            'dealer_code': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder' : "Enter Dealer Code"
+            }),
+            'dealer_name': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': "Enter Dealer Name"
+            })
+        }
 
 class ResellerForm(forms.ModelForm):
     class Meta:
         model = Reseller
         fields = '__all__'
+        widgets = {
+            'reseller_name': forms.TextInput(attrs={
+                'class': "form-control"
+            })
+        }
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -28,6 +43,10 @@ class SalesOrderForm(forms.ModelForm):
     class Meta:
         model = SalesOrder
         fields = '__all__'
+        # appointment_date = forms.DateField(
+        #     widget=forms.DateInput(format='%m/%d/%Y'),
+        #     input_formats=('%m/%d/%Y',)
+        # )
         # fields = ['reseller','customer','dealer_code','cost_price','selling_price','order_status']
         # exclude = ['title']
         # widgets = {
@@ -35,37 +54,61 @@ class SalesOrderForm(forms.ModelForm):
         # }
         widgets ={
             'client_type': forms.Select(attrs={
-                'style': 'border-color: green;',
+                'style': 'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
             'order_status': forms.Select(attrs={
-                'style': 'border-color: green;',
+                'style': 'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
-                'class':"form-control"
+                'class': "form-control"
             }),
             'reseller': forms.Select(attrs={
-                'style': 'border-color: green;',
+                'style':  'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
             'customer': forms.Select(attrs={
-                'style': 'border-color: green;',
+                'style':  'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
             'type': forms.Select(attrs={
-                'style': 'border-color: green;',
+                'style':  'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
             'qty': forms.NumberInput(attrs={
-                'style': 'border-color: green;',
+                'style':  'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
-            'booking_date': forms.DateInput(attrs={
-                'style': 'border-color: green;',
+            'booking_date': forms.DateInput(format='%d-%m-%Y',attrs={
+                'style':  'margin-bottom: 15px;',
+                'input_formats' : "%d-%m-%Y",
+                'type':'date',
+                # 'placeholder': 'Write your name here'
+                'class':"form-control"
+            }),
+            'cost_price': forms.NumberInput(attrs={
+                'style':  'margin-bottom: 15px;',
+                'step' : 1,
+                # 'placeholder': 'Write your name here'
+                'class':"form-control"
+            }),
+            'selling_price': forms.NumberInput(attrs={
+                'style':  'margin-bottom: 15px;',
+                'step': 1,
+                # 'placeholder': 'Write your name here'
+                'class':"form-control"
+            }),
+            'dealer': forms.Select(attrs={
+                'style':  'margin-bottom: 15px;',
+                # 'placeholder': 'Write your name here'
+                'class':"form-control"
+            }),
+            'tracking_id': forms.TextInput(attrs={
+                'style':  'margin-bottom: 15px;',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             })
