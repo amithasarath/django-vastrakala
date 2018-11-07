@@ -12,7 +12,9 @@
 			<div class="account pull-right">
 				<ul class="user-menu">
 					{% if user.is_authenticated %}
-					<li><a href="{% url 'accounts:my_account' %}">My Account</a></li>
+					<li><a href="{% url 'accounts:my_account' %}">My Account</a>
+
+					</li>
 					<li><a href="{% url 'accounts:profile' %}">My profile</a></li>
 					<li><a href="{% url 'accounts:address' %}">My Addresses</a></li>
 					{% endif %}
@@ -38,7 +40,9 @@
 					<li><a href="{% url 'cart:checkout' %}">Checkout</a></li>
 
 						{% if user.is_authenticated %}
-    						<li>Welcome, {{ user.username }}</li>
+    						<li>Welcome, {{ user.username }}
+
+							</li>
 							<li><a href="{% url 'logout' %}">Logout</a> </li>
 						{% else %}
 							<li>Welcome Guest</li>

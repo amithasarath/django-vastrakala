@@ -27,15 +27,21 @@ def showDashboard(request):
     return render(request,'accounts/dashboard.html')
 
 def make_so(request):
+    print "----"
     all_orders = SalesOrder.objects.all()
     if request.method == "POST":
         form = SalesOrderForm(request.POST)
         if form.is_valid():
+            print "Valid"
             so = form.save(commit=False)
             so.created = timezone.now()
             so.save()
             # messages.info(request, 'Your order has been saved successfully!')
             return HttpResponseRedirect(reverse("accounts:make_so"))
+        else:
+            print "ooooooooo"
+            print form.errors
+            print form.non_field_errors()
     else:
         form = SalesOrderForm(initial={'order_status':'B'})
 
@@ -100,20 +106,53 @@ class SalesOrderDetailView(generic.DetailView):
 class SOListView(generic.ListView):
     model = SalesOrder
     # OR
+
+    # import datetime
+    # year = datetime.datetime.now().year
+    # month = datetime.datetime.now().month
+    # queryset = SalesOrder.objects.filter(booking_date__year=year).filter(booking_date__month=month)
     # queryset = SalesOrder.objects.all()
     # template_name = "accounts/order_list.html"
     template_name = "business/order.html"
     context_object_name = "all_orders"
-    profit = SalesOrder.objects.all().aggregate(Sum('selling_price'))
+    # profit = SalesOrder.objects.all().aggregate(Sum('selling_price'))
+    allow_empty = True
+    #
+    # def get_queryset(self):
+    #     d = self.request.GET.get('ordermonth')
+    #     m, y = d.split('-')
+    #     print y,m
+    #     query= super(SOListView,self).get_queryset()
+    #     all_orders = query.filter(booking_date__year=y).filter(booking_date__month=m)
+    #     # all_orders = SalesOrder.objects.all()
+    #     print all_orders
+    #     return all_orders
+    #
+    # def get_context_data(self, **kwargs):
+    #     # d = self.request.GET.get('ordermonth')
+    #     # m,y =  d.split('-')
+    #     # print m,y
+    #     # queryset = SalesOrder.objects.filter(booking_date__year=y).filter(booking_date__month=m)
+    #
+    #     context = super(SOListView, self).get_context_data(**kwargs)
+    #     # print context['all_orders']
+    #     context['profit'] = SalesOrder.objects.all().aggregate(Sum('selling_price')).get('selling_price__sum', 0.00) - SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
+    #     context['cp'] = SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
+    #     context['sp'] = SalesOrder.objects.all().aggregate(Sum('selling_price'))
+    #     return context
 
-    def get_context_data(self, **kwargs):
-        context = super(SOListView, self).get_context_data(**kwargs)
-        context['profit'] = SalesOrder.objects.all().aggregate(Sum('selling_price')).get('selling_price__sum', 0.00) - SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
-        context['cp'] = SalesOrder.objects.all().aggregate(Sum('cost_price')).get('cost_price__sum', 0.00)
-        context['sp'] = SalesOrder.objects.all().aggregate(Sum('selling_price'))
-        return context
+    def get(self, request, *args, **kwargs):
+        import datetime
+        today = datetime.date.today()
+        y = today.year
+        m = today.month
+        if self.request.GET.get('ordermonth'):
+            y,m = self.request.GET.get('ordermonth').split('-')
 
-######################### DEALERS ##################################################
+        all_orders = SalesOrder.objects.filter(booking_date__year=y).filter(booking_date__month=m)
+        return render(request, self.template_name, {'all_orders': all_orders})
+
+    ######################### DEALERS ##################################################
 
 def show_dealers(request, pk=None):
     all_dealers = Dealer.objects.all()

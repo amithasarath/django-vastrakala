@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^order/$', account_views.make_so, name='make_so'),
     url(r'^order/list/$',account_views.SOListView.as_view(), name='orders'),
 
+    url(r'^chart/$',views.show_chart, name='chart'),
+
 ]

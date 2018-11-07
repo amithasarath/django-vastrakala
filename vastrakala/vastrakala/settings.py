@@ -122,8 +122,11 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 
 USE_L10N = True
+# USE_L10N = False
+
 
 USE_TZ = True
+# USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -146,3 +149,5 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 CART_SESSION_ID = 'cart'
+
+# DATE_INPUT_FORMATS = ['%d-%m-%Y']

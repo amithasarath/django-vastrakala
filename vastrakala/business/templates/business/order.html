@@ -22,8 +22,22 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Responsive tables
+                  <div style="float:left;padding-right: 30px;">
+                      <p>Total<span style="color:red"> {{ all_orders.count }}</span> Orders in:</p>
+                  </div>
+                  <div style="overflow:hidden;">
+                      <form class="form-inline" method="GET" action="">
+                          <div class="form-group">
+                              <input type="month" class="form-control" id="date"  name="ordermonth">
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="btn btn-primary" value="Show">
+                          </div>
+                      </form>
+                  </div>
               </header>
+                                    {% if all_orders %}
+
               <div class="table-responsive">
                 <table class="table">
                   <thead>
@@ -46,6 +60,7 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
+
                   <tbody>
                   {% for order in all_orders %}
               <tr>
@@ -97,7 +112,7 @@
             {% endfor %}
 
             <tr>
-                <td>Total : {{ all_orders.count }}</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -118,7 +133,14 @@
             </tr>
 
                   </tbody>
+
+
                 </table>
+
+                           {% else %}
+
+                    <p> No orders </p>
+                    {% endif %}
               </div>
 
             </section>
@@ -127,3 +149,40 @@
 
 
 {% endblock business-content %}
+
+
+{% block javascript %}
+<script>
+
+    $(document).ready(function() {
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var order_month = url.searchParams.get("ordermonth");
+        console.log(order_month);
+
+        if (!order_month){
+
+            var today = new Date();
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+            var date = new Date();
+
+            document.getElementById('date').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
+            order_month = date.getFullYear()+ '-' + (date.getMonth()+1);
+
+        }
+
+        document.getElementById('date').defaultValue = order_month;
+
+
+        <!--$('#date').val('2018-11');-->
+
+    });
+
+
+    <!--$('#date').change(function() {-->
+        <!--alert(window.location.href);-->
+    <!--});-->
+
+    </script>
+
+{% endblock javascript %}

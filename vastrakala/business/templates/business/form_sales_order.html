@@ -51,32 +51,36 @@
                             <!--</select>-->
                         </div>
                     <!--</div>-->
+
+                        <!--<label class="control-label col-lg-2">-->
+                            <!--Reseller/Customer-->
+                        <!--</label>-->
+                        <!--<div class="col-lg-10">-->
+                            <!--<input type="radio" name="sellto" id="reseller"-->
+                                   <!--class="form-control1" value="reseller" checked> Reseller<br>-->
+                            <!--<input type="radio" name="sellto" id="customer"-->
+                                   <!--class="form-control1" value="customer"> Customer<br>-->
+                        <!--</div>-->
+
+
                     <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2">
+                        <div class="control-label col-lg-2 r">
+                        <label id="i_reseller" class="control-label">
                             Reseller
                         </label>
-                        <div class="col-lg-10"> {{ form.reseller }}
-
-                            <!--<select class="form-control m-bot15">-->
-                                                  <!--<option>Option 1</option>-->
-                                                  <!--<option>Option 2</option>-->
-                                                  <!--<option>Option 3</option>-->
-                            <!--</select>-->
+                            </div>
+                        <div class="col-lg-10 r">
+                            {{ form.reseller }}
                         </div>
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <label class="control-label col-lg-2">
+                         <div class="control-label col-lg-2 c">
+                        <label id="i_customer" class="control-label">
                             Customer
-                        </label>
-                        <div class="col-lg-10">{{ form.customer }}
-
-                            <!--<select class="form-control m-bot15">-->
-                                                  <!--<option>Option 1</option>-->
-                                                  <!--<option>Option 2</option>-->
-                                                  <!--<option>Option 3</option>-->
-                            <!--</select>-->
+                        </label> </div>
+                        <div class="col-lg-10 c">
+                            {{ form.customer }}
                         </div>
                     <!--</div>-->
+
                     <!--<div class="form-group">-->
                         <label class="control-label col-lg-2">
                             Item Type
@@ -96,10 +100,17 @@
                         </div>
 
                         <label class="control-label col-sm-2">Booking Date</label>
-                        <div class="col-sm-10"> {{ form.booking_date }}
-                          <!--<input id="dp1" type="text" value="28-10-2013" size="16" class="form-control m-bot15">-->
+                        <div class="col-sm-10">
+                            {{ form.booking_date }}
                         </div>
 
+{% if form.booking_date.errors %}
+    <ol>
+    {% for error in form.booking_date.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
                         <label class="col-sm-2 control-label">Buying Price</label>
                         <div class="col-sm-10"> {{ form.cost_price}}
                           <!--<input type="number" class="form-control m-bot15">-->
@@ -138,4 +149,52 @@
 
                 </form>
 
+              </div>
+            </section>
+          </div>
+</div>
+
 {% endblock business-content %}
+
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+     <!--$('input[type="radio"]').click(function(){-->
+      <!--if($(this).attr('id') == 'reseller') {-->
+            <!--$('.c').hide();-->
+            <!--$('.r').show();-->
+            <!--&lt;!&ndash;$('#id_reseller').show();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#i_reseller').show();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#id_customer').hide();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#i_customer').hide();&ndash;&gt;-->
+       <!--}-->
+
+       <!--else {-->
+            <!--$('.r').hide();-->
+            <!--$('.c').show();-->
+            <!--&lt;!&ndash;$('#id_reseller').hide();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#i_reseller').hide();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#id_customer').show();&ndash;&gt;-->
+            <!--&lt;!&ndash;$('#i_customer').show();&ndash;&gt;-->
+       <!--}-->
+         <!--&lt;!&ndash;sellto = document.getElementByName('r1').value;&ndash;&gt;-->
+     <!--});-->
+
+    });
+
+     $('#id_client_type').change(function() {
+       type = $(this).val();
+       if (type == 1){
+            $('.c').show();
+            $('.r').hide();
+       }
+       else{
+            $('.r').show();
+            $('.c').hide();
+       }
+    });
+
+</script>
+
+{% endblock javascript %}

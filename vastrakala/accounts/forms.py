@@ -1,7 +1,7 @@
 from django import forms
 from . models import Dealer,Reseller,Customer,SalesOrder
 from django.utils.translation import gettext_lazy as _
-
+from django.conf import settings
 
 class DealerForm(forms.ModelForm):
     class Meta:
@@ -40,6 +40,29 @@ class CustomerForm(forms.ModelForm):
 
 
 class SalesOrderForm(forms.ModelForm):
+    from django.conf import settings
+    # booking_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+    # def clean(self):
+    #     cleaned_data = super(SalesOrderForm,self).clean()
+    #     client_type = cleaned_data.get("client_type")
+    #     # print client_type
+    #     reseller = cleaned_data.get("reseller")
+    #     # print reseller
+    #     if "Reseller" in client_type and not reseller:
+    #         raise forms.ValidationError(
+    #             "Please Enter the Reseller Name"
+    #         )
+
+    def __init__(self, *args, **kwargs):
+        """django form dropdown default value remove --------"""
+        super(SalesOrderForm, self).__init__(*args, **kwargs)
+        self.fields['client_type'].empty_label = ""
+        self.fields['reseller'].empty_label = ""
+        self.fields['customer'].empty_label = ""
+        self.fields['type'].empty_label = "<Select Item Type>"
+        self.fields['dealer'].empty_label = "" #None
+
+
     class Meta:
         model = SalesOrder
         fields = '__all__'
@@ -80,12 +103,16 @@ class SalesOrderForm(forms.ModelForm):
             }),
             'qty': forms.NumberInput(attrs={
                 'style':  'margin-bottom: 15px;',
+                'min':1,
+                'step':1,
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
-            'booking_date': forms.DateInput(format='%d-%m-%Y',attrs={
+            # 'booking_date': forms.DateInput(format='%d-%m-%Y',attrs={
+            'booking_date': forms.DateInput(format=settings.DATE_INPUT_FORMATS,attrs={
                 'style':  'margin-bottom: 15px;',
-                'input_formats' : "%d-%m-%Y",
+                'input_formats' : settings.DATE_INPUT_FORMATS,
+                # 'input_formats' : "%d-%m-%Y",
                 'type':'date',
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
@@ -93,12 +120,14 @@ class SalesOrderForm(forms.ModelForm):
             'cost_price': forms.NumberInput(attrs={
                 'style':  'margin-bottom: 15px;',
                 'step' : 1,
+                'min':0,
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),
             'selling_price': forms.NumberInput(attrs={
                 'style':  'margin-bottom: 15px;',
                 'step': 1,
+                'min': 0,
                 # 'placeholder': 'Write your name here'
                 'class':"form-control"
             }),

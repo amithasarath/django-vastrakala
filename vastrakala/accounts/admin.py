@@ -38,8 +38,8 @@ admin.site.register(Dealer, DealerAdmin)
 
 
 class SalesOrderAdmin(admin.ModelAdmin):
-    list_display = ['id','booking_date','order_status','client_type','reseller','customer','type','cost_price','selling_price','profit','qty','created','modified']
-    list_editable = ['booking_date','order_status','client_type','reseller','customer','type','cost_price','selling_price','profit','qty']
+    list_display = ['id','booking_date','order_status','client_type','reseller','customer','type','cost_price','selling_price','qty','created','modified']
+    list_editable = ['booking_date','order_status','client_type','reseller','customer','type','cost_price','selling_price','qty']
     list_filter = ['booking_date','order_status','client_type','reseller','customer','type']
 
 
