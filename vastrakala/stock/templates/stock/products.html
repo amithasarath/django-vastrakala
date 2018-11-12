@@ -6,7 +6,9 @@
 
 
 <div class="span9">
+    {% if item_list %}
     <ul class="thumbnails listing-products">
+
         {% for item in item_list %}
         <li class="span3">
             <div class="product-box">
@@ -30,7 +32,12 @@
             </div>
         </li>
         {%  endfor %}
+
     </ul>
+    {% else %}
+
+    <p> <center> No items listed </center></p>
+     {% endif %}
 
     <hr>
 
