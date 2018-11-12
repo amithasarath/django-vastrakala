@@ -102,6 +102,7 @@ class SalesOrderDetailView(generic.DetailView):
 
 
 ########################## ORDERS ##########################################
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 class SOListView(generic.ListView):
     model = SalesOrder
@@ -150,7 +151,15 @@ class SOListView(generic.ListView):
             y,m = self.request.GET.get('ordermonth').split('-')
 
         all_orders = SalesOrder.objects.filter(booking_date__year=y).filter(booking_date__month=m)
-        return render(request, self.template_name, {'all_orders': all_orders})
+        page = request.GET.get('page', 1)
+        paginator = Paginator(all_orders, 10)
+        try:
+            orders = paginator.page(page)
+        except PageNotAnInteger:
+            orders = paginator.page(1)
+        except EmptyPage:
+            orders = paginator.page(paginator.num_pages)
+        return render(request, self.template_name, {'all_orders': orders})
 
     ######################### DEALERS ##################################################
 

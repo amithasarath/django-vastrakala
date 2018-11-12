@@ -60,13 +60,13 @@ def item_stock_list(request,pk):
     # stocks = paginator.get_page(page)
 
     page = request.GET.get('page', 1)
-    print "------------"
-    print page
+    # print "------------"
+    # print page
 
     paginator = Paginator(item_list, 6)
-    print paginator
-    print paginator.count
-    print paginator.num_pages
+    # print paginator
+    # print paginator.count
+    # print paginator.num_pages
     try:
         stocks = paginator.page(page)
     except PageNotAnInteger:
